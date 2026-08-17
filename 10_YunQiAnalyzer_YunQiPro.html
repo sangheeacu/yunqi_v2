@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yùn Qì Pro — Analyzer</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f8f7f4;color:#1a1a18}
+.app{display:grid;grid-template-columns:180px 1fr;min-height:100vh}
+.sidebar{background:#fff;border-right:0.5px solid #e0ded6;padding:20px 14px;display:flex;flex-direction:column;gap:4px}
+.logo{font-size:14px;font-weight:500;margin-bottom:20px;padding:0 6px}.logo span{color:#534AB7}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;font-size:13px;color:#5f5e5a;cursor:pointer;text-decoration:none}
+.nav-item:hover{background:#f8f7f4}
+.nav-item.active{background:#EEEDFE;color:#3C3489;font-weight:500}
+.nav-item.admin{background:#FAEEDA;color:#633806}
+.nav-section{font-size:10px;color:#888780;padding:12px 10px 4px;text-transform:uppercase;letter-spacing:0.05em}
+.sidebar-footer{margin-top:auto;border-top:0.5px solid #e0ded6;padding-top:12px}
+.user-row{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;cursor:pointer}
+.avatar{width:28px;height:28px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#3C3489}
+.user-name{font-size:12px;font-weight:500}
+.user-plan{font-size:10px;color:#534AB7;font-weight:500}
+.main{padding:24px}
+.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.page-header h1{font-size:17px;font-weight:500}
+.sub-tabs{display:flex;gap:4px;background:#f8f7f4;border-radius:10px;padding:3px;margin-bottom:20px;border:0.5px solid #e0ded6}
+.sub-tab{flex:1;padding:7px 10px;border-radius:8px;font-size:12px;color:#5f5e5a;cursor:pointer;text-align:center;border:none;background:none}
+.sub-tab.active{background:#fff;color:#1a1a18;font-weight:500;border:0.5px solid #e0ded6}
+.controls{display:flex;gap:10px;align-items:flex-end;margin-bottom:20px;flex-wrap:wrap}
+.ctrl-group{display:flex;flex-direction:column;gap:4px}
+.ctrl-group label{font-size:11px;color:#5f5e5a}
+.ctrl-group select,.ctrl-group input{padding:7px 10px;border:0.5px solid #b4b2a9;border-radius:8px;font-size:13px}
+.btn-analyze{padding:8px 18px;background:#534AB7;color:#EEEDFE;border:none;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.result-card{background:#fff;border:0.5px solid #e0ded6;border-radius:10px;padding:14px}
+.result-card.highlight{border-color:#AFA9EC;background:#EEEDFE}
+.rc-label{font-size:10px;color:#888780;text-transform:uppercase;margin-bottom:6px}
+.rc-hanzi{font-size:18px;font-weight:500;margin-bottom:2px}
+.rc-pinyin{font-size:11px;color:#534AB7;margin-bottom:2px}
+.rc-en{font-size:11px;color:#5f5e5a}
+.segments-card{background:#fff;border:0.5px solid #e0ded6;border-radius:10px;padding:16px;margin-bottom:16px}
+.segments-card h3{font-size:13px;font-weight:500;margin-bottom:12px}
+.seg-table{width:100%;border-collapse:collapse}
+.seg-table th{font-size:10px;color:#888780;text-align:left;padding:4px 8px;border-bottom:0.5px solid #e0ded6;font-weight:400;text-transform:uppercase}
+.seg-table td{font-size:12px;padding:7px 8px;border-bottom:0.5px solid #e0ded6;color:#5f5e5a}
+.seg-table tr:last-child td{border-bottom:none}
+.seg-table tr.current td{background:#f8f7f4}
+.seg-table tr.current td:first-child{color:#534AB7}
+.multi-compare{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.compare-col{background:#fff;border:0.5px solid #e0ded6;border-radius:10px;overflow:hidden}
+.compare-col.current-year{border-color:#534AB7}
+.compare-head{padding:10px 12px;border-bottom:0.5px solid #e0ded6;display:flex;align-items:center;justify-content:space-between}
+.compare-head h4{font-size:12px;font-weight:500}
+.year-badge{font-size:10px;padding:2px 8px;border-radius:20px;background:#EEEDFE;color:#3C3489;font-weight:500}
+.compare-body{padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.compare-row span:first-child{display:block;font-size:10px;color:#888780}
+.compare-row span:last-child{font-size:12px;color:#1a1a18}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="sidebar">
+    <div class="logo">Yùn Qì <span>Pro</span></div>
+    <a class="nav-item" href="08_Dashboard_YunQiPro.html">Dashboard</a>
+    <a class="nav-item" href="09_AIQnA_YunQiPro.html">AI Q&A</a>
+    <div class="nav-section">Analyzer</div>
+    <a class="nav-item active" href="#">Yùn Qì analyzer</a>
+    <a class="nav-item" href="10b_PersonalProfile_YunQiPro.html">Personal profile</a>
+    <div class="nav-section">Clinical</div>
+    <a class="nav-item" href="11_TreatmentCalendar_YunQiPro.html">Treatment calendar</a>
+    <a class="nav-item" href="11b_SymptomLookup_YunQiPro.html">Symptom lookup</a>
+    <a class="nav-item" href="11c_Patients_YunQiPro.html">Patients</a>
+    <div class="nav-section">Library</div>
+    <a class="nav-item" href="12_ClassicalTexts_YunQiPro.html">Classical texts</a>
+    <a class="nav-item" href="12b_StudyMode_YunQiPro.html">Study mode</a>
+    <div class="nav-section">Admin</div>
+    <a class="nav-item admin" href="15_AdminPanel_YunQiPro.html">Admin panel</a>
+    <div class="sidebar-footer">
+      <div class="user-row">
+        <div class="avatar">SP</div>
+        <div><div class="user-name">Sang Hee Park</div><div class="user-plan">Super Admin</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="page-header">
+      <h1>Yùn Qì analyzer 運氣分析</h1>
+      <button class="btn-analyze">Export PDF</button>
+    </div>
+    <div class="sub-tabs">
+      <button class="sub-tab active">Annual analysis</button>
+      <button class="sub-tab">Personal profile</button>
+      <button class="sub-tab">Multi-year compare</button>
+      <button class="sub-tab">S. Hemisphere</button>
+    </div>
+    <div class="controls">
+      <div class="ctrl-group"><label>Year</label>
+        <select><option>2025 乙巳</option><option>2026 丙午</option><option selected>2027 丁未</option><option>2028 戊申</option></select>
+      </div>
+      <div class="ctrl-group"><label>Hemisphere</label>
+        <select><option>Northern</option><option>Southern (AU/NZ)</option></select>
+      </div>
+    </div>
+    <div class="results-grid">
+      <div class="result-card highlight"><div class="rc-label">Dà Yùn 大運</div><div class="rc-hanzi">木不及</div><div class="rc-pinyin">Mù Bù Jí</div><div class="rc-en">Wood Deficiency</div></div>
+      <div class="result-card"><div class="rc-label">Sī Tiān 司天</div><div class="rc-hanzi">陽明燥金</div><div class="rc-pinyin">Yáng Míng Zào Jīn</div><div class="rc-en">Dryness-Metal</div></div>
+      <div class="result-card"><div class="rc-label">Zài Quán 在泉</div><div class="rc-hanzi">少陰君火</div><div class="rc-pinyin">Shào Yīn Jūn Huǒ</div><div class="rc-en">Emperor Fire</div></div>
+      <div class="result-card"><div class="rc-label">Current Zhǔ Qì 主氣</div><div class="rc-hanzi">太陰濕土</div><div class="rc-pinyin">Tài Yīn Shī Tǔ</div><div class="rc-en">Dampness-Earth (4th)</div></div>
+      <div class="result-card"><div class="rc-label">Current Kè Qì 客氣</div><div class="rc-hanzi">太陰濕土</div><div class="rc-pinyin">Tài Yīn Shī Tǔ</div><div class="rc-en">Dampness-Earth (4th)</div></div>
+      <div class="result-card"><div class="rc-label">Zhōng Yùn 中運</div><div class="rc-hanzi">丁壬化木</div><div class="rc-pinyin">Dīng Rén Huà Mù</div><div class="rc-en">Wood transformation</div></div>
+    </div>
+    <div class="segments-card">
+      <h3>十節段 Shí Jié Duàn — Ten segments 2027</h3>
+      <table class="seg-table">
+        <thead><tr><th>#</th><th>Period</th><th>Zhǔ Qì 主氣</th><th>Kè Qì 客氣</th><th>Dà Yùn influence</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Jan 20 – Mar 20</td><td>厥陰風木</td><td>少陽相火</td><td>Wood Def. + Wind</td></tr>
+          <tr><td>2</td><td>Mar 20 – May 21</td><td>少陰君火</td><td>陽明燥金</td><td>Fire constrained</td></tr>
+          <tr><td>3</td><td>May 21 – Jul 7</td><td>少陽相火</td><td>太陽寒水</td><td>Heat-Cold conflict</td></tr>
+          <tr class="current"><td>▶ 4</td><td>Jul 7 – Sep 8</td><td>太陰濕土</td><td>太陰濕土</td><td>Double Damp — now</td></tr>
+          <tr><td>5</td><td>Sep 8 – Oct 8</td><td>陽明燥金</td><td>厥陰風木</td><td>Dry-Wind pattern</td></tr>
+          <tr><td>6</td><td>Oct 8 – Nov 22</td><td>陽明燥金</td><td>少陰君火</td><td>Autumn Fire rising</td></tr>
+          <tr><td>7–10</td><td>Nov 22 – Jan 20</td><td>太陽寒水</td><td>少陽相火</td><td>Cold exterior, Fire int.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

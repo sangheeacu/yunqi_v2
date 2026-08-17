@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yùn Qì Pro — Subscription</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f8f7f4;color:#1a1a18}
+.app{display:grid;grid-template-columns:180px 1fr;min-height:100vh}
+.sidebar{background:#fff;border-right:0.5px solid #e0ded6;padding:20px 14px;display:flex;flex-direction:column;gap:4px}
+.logo{font-size:14px;font-weight:500;margin-bottom:20px;padding:0 6px}.logo span{color:#534AB7}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;font-size:13px;color:#5f5e5a;cursor:pointer;text-decoration:none}
+.nav-item:hover{background:#f8f7f4}
+.nav-item.admin{background:#FAEEDA;color:#633806}
+.nav-section{font-size:10px;color:#888780;padding:12px 10px 4px;text-transform:uppercase;letter-spacing:0.05em}
+.sidebar-footer{margin-top:auto;border-top:0.5px solid #e0ded6;padding-top:12px}
+.user-row{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px}
+.avatar{width:28px;height:28px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#3C3489}
+.user-name{font-size:12px;font-weight:500}
+.user-plan{font-size:10px;color:#534AB7;font-weight:500}
+.main{padding:24px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:10px;padding:20px;margin-bottom:14px}
+.card h2{font-size:14px;font-weight:500;margin-bottom:14px}
+.status-badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;background:#E1F5EE;color:#085041;margin-bottom:10px}
+.plan-detail-row{display:flex;justify-content:space-between;font-size:12px;padding:7px 0;border-bottom:0.5px solid #e0ded6}
+.plan-detail-row:last-child{border-bottom:none}
+.plan-detail-row span:first-child{color:#5f5e5a}
+.plan-detail-row span:last-child{font-weight:500}
+.btn-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.btn-primary{padding:7px 14px;background:#534AB7;color:#EEEDFE;border:none;border-radius:8px;font-size:12px;cursor:pointer;font-weight:500}
+.btn-ghost{padding:7px 14px;background:transparent;border:0.5px solid #b4b2a9;border-radius:8px;font-size:12px;cursor:pointer;color:#5f5e5a}
+.btn-danger{padding:7px 14px;background:transparent;border:0.5px solid #F7C1C1;border-radius:8px;font-size:12px;cursor:pointer;color:#A32D2D}
+.invoice-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:0.5px solid #e0ded6}
+.invoice-row:last-child{border-bottom:none}
+.inv-badge{font-size:10px;padding:2px 8px;border-radius:20px;background:#E1F5EE;color:#085041;font-weight:500}
+.cancel-note{font-size:11px;color:#5f5e5a;background:#f8f7f4;border-radius:8px;padding:10px;margin-bottom:12px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="sidebar">
+    <div class="logo">Yùn Qì <span>Pro</span></div>
+    <a class="nav-item" href="08_Dashboard_YunQiPro.html">Dashboard</a>
+    <a class="nav-item" href="09_AIQnA_YunQiPro.html">AI Q&A</a>
+    <div class="nav-section">Analyzer</div>
+    <a class="nav-item" href="10_YunQiAnalyzer_YunQiPro.html">Yùn Qì analyzer</a>
+    <div class="nav-section">Clinical</div>
+    <a class="nav-item" href="11_ClinicalTools_YunQiPro.html">Treatment calendar</a>
+    <div class="nav-section">Library</div>
+    <a class="nav-item" href="12_Library_YunQiPro.html">Classical texts</a>
+    <div class="nav-section">Admin</div>
+    <a class="nav-item admin" href="15_AdminPanel_YunQiPro.html">Admin panel</a>
+    <div class="sidebar-footer">
+      <div class="user-row">
+        <div class="avatar">SP</div>
+        <div><div class="user-name">Sang Hee Park</div><div class="user-plan">Super Admin</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <h1 style="font-size:17px;font-weight:500;margin-bottom:20px">Subscription management</h1>
+    <div class="grid">
+      <div class="card" style="margin-bottom:0">
+        <h2>Current plan</h2>
+        <span class="status-badge">Active</span>
+        <div class="plan-detail-row"><span>Plan</span><span>Yùn Qì Pro — Monthly</span></div>
+        <div class="plan-detail-row"><span>Price</span><span>$8.00 / month</span></div>
+        <div class="plan-detail-row"><span>Next billing</span><span>Sep 3, 2026</span></div>
+        <div class="plan-detail-row"><span>Member since</span><span>Aug 3, 2026</span></div>
+        <div class="btn-row">
+          <button class="btn-primary">Change plan</button>
+          <button class="btn-danger">Cancel subscription</button>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <h2>Payment method</h2>
+        <p style="font-size:12px;color:#5f5e5a;margin-bottom:14px">Visa ending in 4242 · Exp 08/2028</p>
+        <p style="font-size:11px;color:#888780;margin-bottom:14px">🔒 Managed securely by Stripe</p>
+        <div class="btn-row">
+          <button class="btn-ghost">Open Stripe billing portal</button>
+          <button class="btn-ghost">Download all invoices</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Billing history</h2>
+      <div class="invoice-row">
+        <div><div style="font-size:12px;font-weight:500">Yùn Qì Pro — Monthly</div><div style="font-size:11px;color:#888780">Aug 3, 2026</div></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:12px;font-weight:500">$8.00</span><span class="inv-badge">Paid</span><button class="btn-ghost" style="font-size:11px;padding:3px 8px">PDF</button></div>
+      </div>
+      <div class="invoice-row">
+        <div><div style="font-size:12px;font-weight:500">Trial start</div><div style="font-size:11px;color:#888780">Jul 27, 2026</div></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:12px;font-weight:500">$0.00</span><span class="inv-badge" style="background:#EEEDFE;color:#3C3489">Trial</span><button class="btn-ghost" style="font-size:11px;padding:3px 8px">PDF</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yùn Qì Pro — Account Settings</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f8f7f4;color:#1a1a18}
+.app{display:grid;grid-template-columns:180px 1fr;min-height:100vh}
+.sidebar{background:#fff;border-right:0.5px solid #e0ded6;padding:20px 14px;display:flex;flex-direction:column;gap:4px}
+.logo{font-size:14px;font-weight:500;margin-bottom:20px;padding:0 6px}.logo span{color:#534AB7}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;font-size:13px;color:#5f5e5a;cursor:pointer;text-decoration:none}
+.nav-item:hover{background:#f8f7f4}
+.nav-item.admin{background:#FAEEDA;color:#633806}
+.nav-section{font-size:10px;color:#888780;padding:12px 10px 4px;text-transform:uppercase;letter-spacing:0.05em}
+.sidebar-footer{margin-top:auto;border-top:0.5px solid #e0ded6;padding-top:12px}
+.user-row{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px}
+.avatar{width:28px;height:28px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#3C3489}
+.user-name{font-size:12px;font-weight:500}
+.user-plan{font-size:10px;color:#534AB7;font-weight:500}
+.main{padding:24px}
+.settings-layout{display:grid;grid-template-columns:180px 1fr;gap:16px;margin-top:20px}
+.settings-nav{background:#fff;border:0.5px solid #e0ded6;border-radius:10px;padding:8px;height:fit-content}
+.s-nav-item{padding:8px 10px;border-radius:8px;font-size:13px;color:#5f5e5a;cursor:pointer;display:block;margin-bottom:2px}
+.s-nav-item:hover{background:#f8f7f4}
+.s-nav-item.active{background:#EEEDFE;color:#3C3489;font-weight:500}
+.s-nav-item.danger{color:#A32D2D}
+.settings-card{background:#fff;border:0.5px solid #e0ded6;border-radius:10px;padding:20px}
+.settings-card h2{font-size:14px;font-weight:500;margin-bottom:4px}
+.settings-card .desc{font-size:12px;color:#5f5e5a;margin-bottom:18px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:12px;color:#5f5e5a;margin-bottom:5px}
+.form-group input,.form-group select{width:100%;padding:8px 10px;border:0.5px solid #b4b2a9;border-radius:8px;font-size:13px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-save{padding:8px 18px;background:#534AB7;color:#EEEDFE;border:none;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:0.5px solid #e0ded6}
+.toggle-row:last-child{border-bottom:none}
+.toggle-info h4{font-size:13px;margin-bottom:2px}
+.toggle-info p{font-size:11px;color:#5f5e5a}
+.danger-zone{border-color:#F7C1C1;background:#FCEBEB}
+.danger-zone h2{color:#A32D2D}
+.btn-danger{padding:8px 18px;background:transparent;color:#A32D2D;border:0.5px solid #F7C1C1;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer}
+.delete-confirm{background:#fff;border:0.5px solid #F7C1C1;border-radius:8px;padding:14px;margin-top:14px}
+.delete-confirm p{font-size:12px;color:#791F1F;margin-bottom:12px;line-height:1.6}
+.delete-confirm input{width:100%;padding:7px 10px;border:0.5px solid #F7C1C1;border-radius:8px;font-size:13px;margin-bottom:10px}
+.btn-cancel{padding:7px 14px;border:0.5px solid #b4b2a9;border-radius:8px;font-size:12px;cursor:pointer;background:#fff;color:#5f5e5a}
+.btn-confirm-delete{padding:7px 14px;background:#A32D2D;color:#fff;border:none;border-radius:8px;font-size:12px;cursor:pointer;font-weight:500;margin-left:8px}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="sidebar">
+    <div class="logo">Yùn Qì <span>Pro</span></div>
+    <a class="nav-item" href="08_Dashboard_YunQiPro.html">Dashboard</a>
+    <a class="nav-item" href="09_AIQnA_YunQiPro.html">AI Q&A</a>
+    <div class="nav-section">Analyzer</div>
+    <a class="nav-item" href="10_YunQiAnalyzer_YunQiPro.html">Yùn Qì analyzer</a>
+    <div class="nav-section">Clinical</div>
+    <a class="nav-item" href="11_ClinicalTools_YunQiPro.html">Treatment calendar</a>
+    <div class="nav-section">Library</div>
+    <a class="nav-item" href="12_Library_YunQiPro.html">Classical texts</a>
+    <div class="nav-section">Admin</div>
+    <a class="nav-item admin" href="15_AdminPanel_YunQiPro.html">Admin panel</a>
+    <div class="sidebar-footer">
+      <div class="user-row">
+        <div class="avatar">SP</div>
+        <div><div class="user-name">Sang Hee Park</div><div class="user-plan">Super Admin</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <h1 style="font-size:17px;font-weight:500">Account settings</h1>
+    <div class="settings-layout">
+      <div class="settings-nav">
+        <div class="s-nav-item active">Profile</div>
+        <div class="s-nav-item">Password</div>
+        <div class="s-nav-item">Notifications</div>
+        <div class="s-nav-item">Language</div>
+        <div class="s-nav-item">History</div>
+        <a class="s-nav-item" href="14_Subscription_YunQiPro.html">Subscription</a>
+        <div class="s-nav-item danger">Delete account</div>
+      </div>
+      <div>
+        <div class="settings-card">
+          <h2>Edit profile</h2>
+          <p class="desc">Update your personal details.</p>
+          <div class="form-row">
+            <div class="form-group"><label>First name</label><input type="text" value="Sang Hee"></div>
+            <div class="form-group"><label>Last name</label><input type="text" value="Park"></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" value="sangheeacu@gmail.com"></div>
+          <div class="form-group"><label>Profession</label><input type="text" value="AHPRA-registered Acupuncturist, Dr. TCM"></div>
+          <div class="form-group"><label>Location</label><input type="text" value="Sydney, NSW, Australia"></div>
+          <div style="display:flex;justify-content:flex-end;margin-top:6px"><button class="btn-save">Save changes</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

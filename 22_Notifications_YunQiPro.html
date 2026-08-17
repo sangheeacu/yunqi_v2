@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Yùn Qì Pro — Notifications</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,sans-serif;background:#f8f7f4;color:#1a1a18}
+.app{display:grid;grid-template-columns:180px 1fr;min-height:100vh}
+.sidebar{background:#fff;border-right:0.5px solid #e0ded6;padding:16px 12px;display:flex;flex-direction:column;gap:2px}
+.logo{font-size:13px;font-weight:500;margin-bottom:16px;padding:0 4px}.logo span{color:#534AB7}
+.nav-item{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:8px;font-size:12px;color:#5f5e5a;cursor:pointer;text-decoration:none}
+.nav-item:hover{background:#f8f7f4}.nav-item.admin{background:#FAEEDA;color:#633806}
+.nav-section{font-size:10px;color:#888780;padding:10px 8px 3px;text-transform:uppercase;letter-spacing:0.05em}
+.sidebar-footer{margin-top:auto;border-top:0.5px solid #e0ded6;padding-top:10px}
+.user-row{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:8px}
+.ava{width:26px;height:26px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:#3C3489}
+.u-name{font-size:11px;font-weight:500}.u-role{font-size:10px;color:#534AB7;font-weight:500}
+.main{padding:20px;max-width:640px}
+.page-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.page-hdr h1{font-size:16px;font-weight:500}
+.mark-all{font-size:11px;color:#534AB7;cursor:pointer}
+.group-label{font-size:10px;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;margin-top:16px}
+.notif-item{display:flex;gap:10px;padding:10px 12px;background:#fff;border:0.5px solid #e0ded6;border-radius:8px;margin-bottom:6px;cursor:pointer}
+.notif-item.unread{border-left:3px solid #534AB7;background:#EEEDFE}
+.notif-item.warning{border-left:3px solid #BA7517;background:#FAEEDA}
+.notif-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.notif-icon.purple{background:#EEEDFE;color:#534AB7}
+.notif-icon.amber{background:#FAEEDA;color:#BA7517}
+.notif-icon.teal{background:#E1F5EE;color:#085041}
+.notif-icon.red{background:#FCEBEB;color:#A32D2D}
+.notif-title{font-size:12px;font-weight:500;margin-bottom:2px}
+.notif-body{font-size:11px;color:#5f5e5a;line-height:1.5;margin-bottom:3px}
+.notif-time{font-size:10px;color:#888780}
+.notif-dot{width:7px;height:7px;border-radius:50%;background:#534AB7;flex-shrink:0;margin-top:4px}
+</style></head><body>
+<div class="app">
+  <div class="sidebar">
+    <div class="logo">Yùn Qì <span>Pro</span></div>
+    <a class="nav-item" href="08_Dashboard_YunQiPro.html">Dashboard</a>
+    <a class="nav-item" href="09_AIQnA_YunQiPro.html">AI Q&A</a>
+    <div class="nav-section">Analyzer</div>
+    <a class="nav-item" href="10_YunQiAnalyzer_YunQiPro.html">Yùn Qì analyzer</a>
+    <a class="nav-item" href="16_PersonalProfile_YunQiPro.html">Personal profile</a>
+    <div class="nav-section">Clinical</div>
+    <a class="nav-item" href="18_TreatmentCalendar_YunQiPro.html">Treatment calendar</a>
+    <a class="nav-item" href="19_SymptomLookup_YunQiPro.html">Symptom lookup</a>
+    <a class="nav-item" href="11_ClinicalTools_YunQiPro.html">Patients</a>
+    <div class="nav-section">Library</div>
+    <a class="nav-item" href="20_ClassicalTexts_YunQiPro.html">Classical texts</a>
+    <a class="nav-item" href="21_StudyMode_YunQiPro.html">Study mode</a>
+    <div class="nav-section">Admin</div>
+    <a class="nav-item admin" href="15_AdminPanel_YunQiPro.html">Admin panel</a>
+    <div class="sidebar-footer">
+      <div class="user-row"><div class="ava">SP</div><div><div class="u-name">Sang Hee Park</div><div class="u-role">Super Admin</div></div></div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="page-hdr"><h1>Notifications</h1><span class="mark-all">Mark all as read</span></div>
+    <div class="group-label" style="margin-top:0">Today — 2 unread</div>
+    <div class="notif-item unread">
+      <div class="notif-icon amber">🗓</div>
+      <div style="flex:1"><div class="notif-title">立秋 Lì Qiū in 4 days</div><div class="notif-body">Start of Autumn Aug 7 — 4th Kè Qì transitions to 少陽相火. Adjust protocols 2 weeks ahead.</div><div class="notif-time">Today, 8:00 AM</div></div>
+      <div class="notif-dot"></div>
+    </div>
+    <div class="notif-item unread">
+      <div class="notif-icon purple">📊</div>
+      <div style="flex:1"><div class="notif-title">Kè Qì transition alert</div><div class="notif-body">4th Kè Qì segment — 太陰濕土 Tài Yīn Shī Tǔ now active. Double Damp pattern — prioritise SP 9, ST 36.</div><div class="notif-time">Today, 6:00 AM</div></div>
+      <div class="notif-dot"></div>
+    </div>
+    <div class="group-label">Yesterday</div>
+    <div class="notif-item warning">
+      <div class="notif-icon red">⚠️</div>
+      <div style="flex:1"><div class="notif-title">Subscription renewal in 7 days</div><div class="notif-body">Pro Monthly renews Sep 3, 2026 — $8.00 AUD. Update payment details if needed.</div><div class="notif-time">Yesterday, 9:00 AM</div></div>
+    </div>
+    <div class="notif-item">
+      <div class="notif-icon teal">📄</div>
+      <div style="flex:1"><div class="notif-title">Weekly Yùn Qì briefing — Aug 3</div><div class="notif-body">This week: 太陰濕土 dominant. Key focus — Spleen-Stomach tonification. Patient Kim Ji Yeon follow-up recommended.</div><div class="notif-time">Yesterday, 7:00 AM</div></div>
+    </div>
+    <div class="group-label">This week</div>
+    <div class="notif-item">
+      <div class="notif-icon purple">📅</div>
+      <div style="flex:1"><div class="notif-title">Favourable treatment day — Aug 1</div><div class="notif-body">Aug 1 flagged as favourable for Liver Qì treatment. Ideal for LV 3, GB 34, LV 8 protocols.</div><div class="notif-time">Aug 1, 6:00 AM</div></div>
+    </div>
+    <div class="notif-item">
+      <div class="notif-icon teal">💬</div>
+      <div style="flex:1"><div class="notif-title">AI Q&A session saved</div><div class="notif-body">"Clinical implications of 木不及 Mù Bù Jí in 2027" — 3 sources cited. Saved to your history.</div><div class="notif-time">Aug 3, 9:16 AM</div></div>
+    </div>
+  </div>
+</div>
+</body></html>

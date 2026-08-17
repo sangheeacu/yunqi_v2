@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yùn Qì Pro — Checkout</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f8f7f4;color:#1a1a18;min-height:100vh;padding:32px 24px;display:flex;flex-direction:column;align-items:center}
+.progress{display:flex;align-items:center;gap:0;margin-bottom:32px}
+.step{display:flex;align-items:center;gap:6px;font-size:11px}
+.step-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500}
+.step.done .step-num{background:#1D9E75;color:#fff}
+.step.active .step-num{background:#534AB7;color:#fff}
+.step.pending .step-num{background:#e0ded6;color:#888780}
+.step-line{width:32px;height:0.5px;background:#e0ded6;margin:0 4px}
+.layout{display:grid;grid-template-columns:1fr 260px;gap:20px;width:100%;max-width:640px}
+.form-card{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;padding:24px}
+.form-card h2{font-size:15px;font-weight:500;margin-bottom:18px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:12px;color:#5f5e5a;margin-bottom:5px}
+.form-group input,.form-group select{width:100%;padding:8px 10px;border:0.5px solid #b4b2a9;border-radius:8px;font-size:13px}
+.form-group input:focus{outline:none;border-color:#534AB7;box-shadow:0 0 0 3px #EEEDFE}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.secure-note{display:flex;align-items:center;gap:6px;font-size:11px;color:#888780;margin-top:14px;padding:8px 10px;background:#f8f7f4;border-radius:8px}
+.section-divider{height:0.5px;background:#e0ded6;margin:18px 0}
+.summary-card{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;padding:20px}
+.summary-card h2{font-size:14px;font-weight:500;margin-bottom:14px}
+.plan-tag{background:#EEEDFE;color:#3C3489;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:12px}
+.summary-line{display:flex;justify-content:space-between;font-size:12px;color:#5f5e5a;margin-bottom:8px}
+.summary-line.total{font-size:13px;font-weight:500;color:#1a1a18;border-top:0.5px solid #e0ded6;padding-top:10px;margin-top:4px}
+.trial-box{background:#E1F5EE;border-radius:8px;padding:10px 12px;margin:12px 0}
+.trial-box p{font-size:11px;color:#085041;line-height:1.5}
+.btn-pay{width:100%;padding:11px;background:#534AB7;color:#EEEDFE;border:none;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;margin-top:16px}
+.btn-pay:hover{background:#3C3489}
+.terms-note{font-size:10px;color:#888780;text-align:center;margin-top:10px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="progress">
+  <div class="step done"><div class="step-num">✓</div><span>Account</span></div>
+  <div class="step-line"></div>
+  <div class="step done"><div class="step-num">✓</div><span>Verify</span></div>
+  <div class="step-line"></div>
+  <div class="step done"><div class="step-num">✓</div><span>Plan</span></div>
+  <div class="step-line"></div>
+  <div class="step active"><div class="step-num">4</div><span>Payment</span></div>
+</div>
+<div class="layout">
+  <div class="form-card">
+    <h2>Payment details</h2>
+    <div class="form-group"><label>Name on card</label><input type="text" placeholder="Sang Hee Park"></div>
+    <div class="form-group"><label>Card number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Expiry date</label><input type="text" placeholder="MM / YY" maxlength="7"></div>
+      <div class="form-group"><label>Security code</label><input type="text" placeholder="CVV" maxlength="4"></div>
+    </div>
+    <div class="section-divider"></div>
+    <h2>Billing address</h2>
+    <div class="form-group"><label>Country</label><select><option>Australia</option><option>New Zealand</option><option>United States</option><option>United Kingdom</option><option>South Korea</option><option>Other</option></select></div>
+    <div class="form-row">
+      <div class="form-group"><label>Postcode</label><input type="text" placeholder="2076"></div>
+      <div class="form-group"><label>State</label><input type="text" placeholder="NSW"></div>
+    </div>
+    <div class="secure-note">🔒 Payments are encrypted and processed securely by Stripe.</div>
+  </div>
+  <div>
+    <div class="summary-card">
+      <h2>Order summary</h2>
+      <div class="plan-tag">Monthly plan</div>
+      <div class="summary-line"><span>Yùn Qì Pro</span><span>$8.00</span></div>
+      <div class="summary-line"><span>7-day trial</span><span style="color:#0F6E56">Free</span></div>
+      <div class="summary-line total"><span>Due today</span><span>$0.00</span></div>
+      <div class="trial-box"><p><strong>Your trial ends Aug 10, 2026.</strong><br>You won't be charged until then.</p></div>
+      <a href="04_ChoosePlan_YunQiPro.html" style="font-size:11px;color:#534AB7;display:block;margin-top:10px">← Change plan</a>
+      <button class="btn-pay">🔒 Start free trial</button>
+      <div class="terms-note">By subscribing you agree to our terms of service. Cancel anytime before your trial ends.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

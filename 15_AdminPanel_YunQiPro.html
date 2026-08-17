@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yùn Qì Pro — Admin Panel</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f8f7f4;color:#1a1a18}
+.app{display:grid;grid-template-columns:180px 1fr;min-height:100vh}
+.sidebar{background:#fff;border-right:0.5px solid #e0ded6;padding:20px 14px;display:flex;flex-direction:column;gap:4px}
+.logo{font-size:14px;font-weight:500;margin-bottom:20px;padding:0 6px}.logo span{color:#534AB7}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;font-size:13px;color:#5f5e5a;cursor:pointer;text-decoration:none}
+.nav-item:hover{background:#f8f7f4}
+.nav-item.active{background:#FAEEDA;color:#633806;font-weight:500}
+.nav-section{font-size:10px;color:#888780;padding:12px 10px 4px;text-transform:uppercase;letter-spacing:0.05em}
+.sidebar-footer{margin-top:auto;border-top:0.5px solid #e0ded6;padding-top:12px}
+.user-row{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px}
+.avatar{width:28px;height:28px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#3C3489}
+.user-name{font-size:12px;font-weight:500}
+.user-plan{font-size:10px;color:#BA7517;font-weight:500}
+.main{padding:24px}
+.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.admin-header h1{font-size:17px;font-weight:500}
+.admin-badge{background:#FAEEDA;color:#633806;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;border:0.5px solid #FAC775}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.metric{background:#fff;border:0.5px solid #e0ded6;border-radius:10px;padding:14px}
+.metric-label{font-size:10px;color:#888780;margin-bottom:4px;text-transform:uppercase}
+.metric-val{font-size:22px;font-weight:500}
+.metric-delta{font-size:11px;margin-top:3px;color:#0F6E56}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:10px;padding:16px;margin-bottom:14px}
+.card h2{font-size:13px;font-weight:500;margin-bottom:12px}
+.u-badge{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:500}
+.badge-active{background:#E1F5EE;color:#085041}
+.badge-trial{background:#EEEDFE;color:#3C3489}
+.badge-cancelled{background:#FCEBEB;color:#791F1F}
+.badge-admin{background:#FAEEDA;color:#633806}
+.revenue-row{display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:0.5px solid #e0ded6}
+.revenue-row:last-child{border-bottom:none}
+.revenue-row span:first-child{color:#5f5e5a}
+.revenue-row span:last-child{font-weight:500}
+.user-table{width:100%;border-collapse:collapse}
+.user-table th{font-size:10px;color:#888780;text-align:left;padding:10px 12px;border-bottom:0.5px solid #e0ded6;font-weight:400;text-transform:uppercase;background:#f8f7f4}
+.user-table td{font-size:12px;padding:9px 12px;border-bottom:0.5px solid #e0ded6;color:#5f5e5a}
+.user-table tr:last-child td{border-bottom:none}
+.u-name{font-weight:500;color:#1a1a18}
+.sub-tabs{display:flex;gap:4px;background:#f8f7f4;border-radius:10px;padding:3px;margin-bottom:20px;border:0.5px solid #e0ded6}
+.sub-tab{flex:1;padding:7px 8px;border-radius:8px;font-size:11px;color:#5f5e5a;cursor:pointer;text-align:center;border:none;background:none}
+.sub-tab.active{background:#fff;color:#1a1a18;font-weight:500;border:0.5px solid #e0ded6}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="sidebar">
+    <div class="logo">Yùn Qì <span>Pro</span></div>
+    <a class="nav-item" href="08_Dashboard_YunQiPro.html">Dashboard</a>
+    <a class="nav-item" href="09_AIQnA_YunQiPro.html">AI Q&A</a>
+    <div class="nav-section">Analyzer</div>
+    <a class="nav-item" href="10_YunQiAnalyzer_YunQiPro.html">Yùn Qì analyzer</a>
+    <div class="nav-section">Clinical</div>
+    <a class="nav-item" href="11_ClinicalTools_YunQiPro.html">Treatment calendar</a>
+    <div class="nav-section">Library</div>
+    <a class="nav-item" href="12_Library_YunQiPro.html">Classical texts</a>
+    <div class="nav-section">Admin</div>
+    <a class="nav-item active" href="#">Admin panel</a>
+    <div class="sidebar-footer">
+      <div class="user-row">
+        <div class="avatar">SP</div>
+        <div><div class="user-name">Sang Hee Park</div><div class="user-plan">Super Admin</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="admin-header">
+      <h1>Admin panel</h1>
+      <span class="admin-badge">Super Admin — sangheeacu@gmail.com</span>
+    </div>
+    <div class="sub-tabs">
+      <button class="sub-tab active">Overview</button>
+      <button class="sub-tab">Users</button>
+      <button class="sub-tab">Revenue</button>
+      <button class="sub-tab">Content</button>
+      <button class="sub-tab">AI usage</button>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-label">Total users</div><div class="metric-val">247</div><div class="metric-delta">+12 this month</div></div>
+      <div class="metric"><div class="metric-label">Active subscribers</div><div class="metric-val">189</div><div class="metric-delta">+8 this month</div></div>
+      <div class="metric"><div class="metric-label">Monthly revenue</div><div class="metric-val">$1,186</div><div class="metric-delta">+$64 vs last month</div></div>
+      <div class="metric"><div class="metric-label">Churn rate</div><div class="metric-val">2.4%</div><div class="metric-delta" style="color:#A32D2D">+0.3% vs last month</div></div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h2>Revenue trend</h2>
+        <div class="revenue-row"><span>May 2026</span><span>$944</span></div>
+        <div class="revenue-row"><span>Jun 2026</span><span>$1,052</span></div>
+        <div class="revenue-row"><span>Jul 2026</span><span>$1,122</span></div>
+        <div class="revenue-row"><span>Aug 2026 (MTD)</span><span style="color:#0F6E56">$1,186</span></div>
+      </div>
+      <div class="card">
+        <h2>Recent users</h2>
+        <table class="user-table">
+          <thead><tr><th>Name</th><th>Plan</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><div class="u-name">Sang Hee Park</div></td><td>—</td><td><span class="u-badge badge-admin">Super Admin</span></td></tr>
+            <tr><td><div class="u-name">Yuki Tanaka</div></td><td>Monthly</td><td><span class="u-badge badge-trial">Trial</span></td></tr>
+            <tr><td><div class="u-name">Sarah O'Brien</div></td><td>Annual</td><td><span class="u-badge badge-active">Active</span></td></tr>
+            <tr><td><div class="u-name">Kim Ji Yeon</div></td><td>Monthly</td><td><span class="u-badge badge-cancelled">Cancelled</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

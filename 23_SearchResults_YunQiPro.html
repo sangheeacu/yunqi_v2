@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Yùn Qì Pro — Classical Text Search Results</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,sans-serif;background:#f8f7f4;color:#1a1a18}
+.app{display:grid;grid-template-columns:180px 1fr;min-height:100vh}
+.sidebar{background:#fff;border-right:0.5px solid #e0ded6;padding:16px 12px;display:flex;flex-direction:column;gap:2px}
+.logo{font-size:13px;font-weight:500;margin-bottom:16px;padding:0 4px}.logo span{color:#534AB7}
+.nav-item{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:8px;font-size:12px;color:#5f5e5a;cursor:pointer;text-decoration:none}
+.nav-item:hover{background:#f8f7f4}.nav-item.active{background:#EEEDFE;color:#3C3489;font-weight:500}
+.nav-item.admin{background:#FAEEDA;color:#633806}
+.nav-section{font-size:10px;color:#888780;padding:10px 8px 3px;text-transform:uppercase;letter-spacing:0.05em}
+.sidebar-footer{margin-top:auto;border-top:0.5px solid #e0ded6;padding-top:10px}
+.user-row{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:8px}
+.ava{width:26px;height:26px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:#3C3489}
+.u-name{font-size:11px;font-weight:500}.u-role{font-size:10px;color:#534AB7;font-weight:500}
+.main{padding:20px;display:flex;flex-direction:column;gap:10px}
+.search-bar{display:flex;gap:8px}
+.search-bar input{flex:1;padding:9px 12px;border:0.5px solid #b4b2a9;border-radius:8px;font-size:13px}
+.search-bar button{padding:9px 16px;background:#534AB7;color:#EEEDFE;border:none;border-radius:8px;font-size:13px;cursor:pointer}
+.filter-row{display:flex;gap:5px;flex-wrap:wrap}
+.f-chip{padding:4px 10px;border:0.5px solid #b4b2a9;border-radius:20px;font-size:11px;color:#5f5e5a;cursor:pointer;background:#fff}
+.f-chip.active{background:#534AB7;color:#EEEDFE;border-color:#534AB7}
+.results-meta{font-size:11px;color:#888780}
+.result-item{background:#fff;border:0.5px solid #e0ded6;border-radius:8px;padding:14px;cursor:pointer}
+.result-item:hover{border-color:#b4b2a9}
+.result-chapter{font-size:10px;color:#534AB7;font-weight:500;margin-bottom:5px}
+.result-cn{font-size:15px;line-height:2;margin-bottom:4px}
+.result-en{font-size:12px;color:#5f5e5a;line-height:1.65;margin-bottom:8px}
+.result-actions{display:flex;gap:6px}
+.r-btn{font-size:10px;padding:3px 10px;border:0.5px solid #b4b2a9;border-radius:20px;cursor:pointer;background:#f8f7f4;color:#5f5e5a}
+.r-btn:hover{color:#534AB7;border-color:#534AB7}
+.hl{background:#EEEDFE;color:#3C3489;border-radius:2px;padding:0 2px}
+</style></head><body>
+<div class="app">
+  <div class="sidebar">
+    <div class="logo">Yùn Qì <span>Pro</span></div>
+    <a class="nav-item" href="08_Dashboard_YunQiPro.html">Dashboard</a>
+    <a class="nav-item" href="09_AIQnA_YunQiPro.html">AI Q&A</a>
+    <div class="nav-section">Analyzer</div>
+    <a class="nav-item" href="10_YunQiAnalyzer_YunQiPro.html">Yùn Qì analyzer</a>
+    <a class="nav-item" href="16_PersonalProfile_YunQiPro.html">Personal profile</a>
+    <div class="nav-section">Clinical</div>
+    <a class="nav-item" href="18_TreatmentCalendar_YunQiPro.html">Treatment calendar</a>
+    <a class="nav-item" href="19_SymptomLookup_YunQiPro.html">Symptom lookup</a>
+    <a class="nav-item" href="11_ClinicalTools_YunQiPro.html">Patients</a>
+    <div class="nav-section">Library</div>
+    <a class="nav-item active" href="#">Classical texts</a>
+    <a class="nav-item" href="21_StudyMode_YunQiPro.html">Study mode</a>
+    <div class="nav-section">Admin</div>
+    <a class="nav-item admin" href="15_AdminPanel_YunQiPro.html">Admin panel</a>
+    <div class="sidebar-footer">
+      <div class="user-row"><div class="ava">SP</div><div><div class="u-name">Sang Hee Park</div><div class="u-role">Super Admin</div></div></div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="search-bar">
+      <input type="text" value="太陰濕土" placeholder="Search Sù Wèn Ch.66–74…">
+      <button>Search</button>
+    </div>
+    <div class="filter-row">
+      <span class="f-chip active">All chapters</span>
+      <span class="f-chip">Ch.66</span><span class="f-chip">Ch.67</span><span class="f-chip">Ch.68</span>
+      <span class="f-chip">Ch.69</span><span class="f-chip">Ch.70</span><span class="f-chip">Ch.71</span><span class="f-chip">Ch.74</span>
+    </div>
+    <div class="results-meta">12 results for "太陰濕土"</div>
+    <div class="result-item">
+      <div class="result-chapter">Sù Wèn Ch.66 — 天元紀大論</div>
+      <div class="result-cn"><span class="hl">太陰</span>之上，濕氣主之</div>
+      <div class="result-en">Above <span class="hl">Tài Yīn</span>, Dampness Qì governs — foundational Six Qì pairing establishing <span class="hl">太陰濕土</span> as the Dampness branch.</div>
+      <div class="result-actions"><span class="r-btn">View passage</span><span class="r-btn">Ask AI</span></div>
+    </div>
+    <div class="result-item">
+      <div class="result-chapter">Sù Wèn Ch.71 — 六元正紀大論 · 丁未年</div>
+      <div class="result-cn">三之氣，天政布，<span class="hl">濕氣</span>降，地氣騰</div>
+      <div class="result-en">3rd Qì — Heaven's governance spreads; <span class="hl">Damp Qì</span> descends, Earth Qì rises. Rain falls frequently; Cold follows. If Cold-Damp invades: body heaviness, oedema, chest fullness.</div>
+      <div class="result-actions"><span class="r-btn">View passage</span><span class="r-btn">Ask AI</span></div>
+    </div>
+    <div class="result-item">
+      <div class="result-chapter">Sù Wèn Ch.74 — 至真要大論</div>
+      <div class="result-cn">諸<span class="hl">濕</span>腫滿，皆屬於脾</div>
+      <div class="result-en">All <span class="hl">dampness</span>, swelling, and fullness belong to the Spleen — Bìng Jī 19 mechanisms, foundational for Damp pattern diagnosis in 太陰濕土 dominant years.</div>
+      <div class="result-actions"><span class="r-btn">View passage</span><span class="r-btn">Ask AI</span></div>
+    </div>
+    <div class="result-item">
+      <div class="result-chapter">Sù Wèn Ch.68 — 六微旨大論</div>
+      <div class="result-cn">丑未之上，<span class="hl">太陰主之</span></div>
+      <div class="result-en"><span class="hl">Tài Yīn governs</span> above 丑·未 — establishes 太陰濕土 as Sī Tiān for all 丑/未 years including 2027 丁未.</div>
+      <div class="result-actions"><span class="r-btn">View passage</span><span class="r-btn">Ask AI</span></div>
+    </div>
+  </div>
+</div>
+</body></html>

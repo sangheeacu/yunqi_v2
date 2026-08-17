@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yùn Qì Pro — Choose Plan</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f8f7f4;color:#1a1a18;min-height:100vh;padding:40px 24px;display:flex;flex-direction:column;align-items:center}
+.progress{display:flex;align-items:center;gap:0;margin-bottom:36px}
+.step{display:flex;align-items:center;gap:6px;font-size:11px}
+.step-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500}
+.step.done .step-num{background:#1D9E75;color:#fff}
+.step.active .step-num{background:#534AB7;color:#fff}
+.step.pending .step-num{background:#e0ded6;color:#888780}
+.step-line{width:32px;height:0.5px;background:#e0ded6;margin:0 4px}
+.header{text-align:center;margin-bottom:32px}
+.header h1{font-size:20px;font-weight:500;margin-bottom:6px}
+.header p{font-size:13px;color:#5f5e5a}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:500px;margin-bottom:24px}
+.plan{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;padding:24px;cursor:pointer;position:relative}
+.plan.selected{border:2px solid #534AB7}
+.plan-popular{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#534AB7;color:#EEEDFE;font-size:10px;font-weight:500;padding:3px 12px;border-radius:20px;white-space:nowrap}
+.plan h2{font-size:15px;font-weight:500;margin-bottom:12px}
+.plan-price{font-size:28px;font-weight:500;line-height:1}
+.plan-billing{font-size:11px;color:#888780;margin:4px 0 12px}
+.plan-saving{font-size:11px;color:#0F6E56;font-weight:500;margin-bottom:12px}
+.plan-divider{height:0.5px;background:#e0ded6;margin:12px 0}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:7px}
+.plan-features li{font-size:12px;color:#5f5e5a}
+.trial-note{font-size:12px;color:#5f5e5a;text-align:center;margin-bottom:20px;line-height:1.6}
+.btn-continue{padding:11px 40px;background:#534AB7;color:#EEEDFE;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
+.btn-continue:hover{background:#3C3489}
+.skip-link{margin-top:12px;font-size:12px;color:#888780;cursor:pointer;text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="progress">
+  <div class="step done"><div class="step-num">✓</div><span>Account</span></div>
+  <div class="step-line"></div>
+  <div class="step done"><div class="step-num">✓</div><span>Verify</span></div>
+  <div class="step-line"></div>
+  <div class="step active"><div class="step-num">3</div><span>Plan</span></div>
+  <div class="step-line"></div>
+  <div class="step pending"><div class="step-num">4</div><span>Payment</span></div>
+</div>
+<div class="header">
+  <h1>Choose your plan</h1>
+  <p>Start with a 7-day free trial. Cancel anytime.</p>
+</div>
+<div class="plans">
+  <div class="plan">
+    <div class="plan-popular">Best value</div>
+    <h2 style="margin-top:12px">Annual</h2>
+    <div class="plan-price">$50<span style="font-size:12px;color:#5f5e5a">/year</span></div>
+    <div class="plan-billing">Billed once a year</div>
+    <div class="plan-saving">Save $46 vs monthly</div>
+    <div class="plan-divider"></div>
+    <ul class="plan-features">
+      <li>✓ All features</li><li>✓ Unlimited AI Q&A</li>
+      <li>✓ Priority support</li><li>✓ Early access</li>
+    </ul>
+  </div>
+  <div class="plan selected">
+    <h2>Monthly</h2>
+    <div class="plan-price">$8<span style="font-size:12px;color:#5f5e5a">/month</span></div>
+    <div class="plan-billing">Billed every month</div>
+    <div class="plan-divider"></div>
+    <ul class="plan-features">
+      <li>✓ All features</li><li>✓ Unlimited AI Q&A</li>
+      <li>✓ Standard support</li><li>✓ Cancel anytime</li>
+    </ul>
+  </div>
+</div>
+<div class="trial-note"><strong>7 days free,</strong> then your selected plan begins.<br>No charge until your trial ends.</div>
+<button class="btn-continue">Continue to payment →</button>
+<div class="skip-link">Skip for now, decide later</div>
+</body>
+</html>
