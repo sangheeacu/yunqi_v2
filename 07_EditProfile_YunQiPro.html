@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Edit profile — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18}
+.hdr{background:#fff;border-bottom:0.5px solid #e0ded6;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:15px;font-weight:600}.logo span{color:#534AB7}
+.container{max-width:480px;margin:0 auto;padding:20px 16px 40px}
+.section{margin-bottom:18px}
+.section-title{font-size:12px;font-weight:600;color:#534AB7;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;padding:16px}
+.label{font-size:12px;font-weight:500;color:#5f5e5a;margin-bottom:5px;display:block}
+.input{width:100%;padding:10px 13px;border:0.5px solid #b4b2a9;border-radius:8px;font-size:14px;outline:none;background:#fff}
+.input:focus{border-color:#534AB7;box-shadow:0 0 0 3px rgba(83,74,183,.1)}
+.field-gap{margin-top:12px}
+.cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.cond-item{display:flex;align-items:center;gap:7px;padding:9px 10px;border:0.5px solid #e0ded6;border-radius:8px;cursor:pointer;font-size:12px;background:#fff}
+.cond-item.checked{border-color:#534AB7;background:#EEEDFE;color:#3C3489;font-weight:500}
+.cond-item input{accent-color:#534AB7;width:14px;height:14px;flex-shrink:0;pointer-events:none}
+.btn{width:100%;padding:12px;border-radius:9px;font-size:14px;font-weight:500;cursor:pointer;border:none;margin-top:8px}
+.btn-primary{background:#534AB7;color:#EEEDFE}
+.btn-danger{background:#fff;color:#E24B4A;border:0.5px solid #E24B4A;margin-top:6px}
+.save-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:0.5px solid #e0ded6;padding:12px 16px;display:flex;gap:8px;max-width:480px;margin:0 auto}
+.save-bar .btn{margin-top:0}
+</style>
+</head><body>
+<div class="hdr">
+  <div class="logo">Yùn Qì <span>Pro</span></div>
+  <a href="06_Dashboard_YunQiPro.html" style="font-size:12px;color:#888780;text-decoration:none">&#8592; Dashboard</a>
+</div>
+<div class="container">
+  <h1 style="font-size:18px;font-weight:600;margin-bottom:4px">Edit health profile</h1>
+  <p style="font-size:13px;color:#5f5e5a;margin-bottom:20px">Updating your profile will recalculate your Yùn Qì risk analysis.</p>
+
+  <div class="section">
+    <div class="section-title">Personal information</div>
+    <div class="card">
+      <label class="label">Full name</label>
+      <input class="input" type="text" value="Sarah Kim">
+      <div class="field-gap"><label class="label">Date of birth</label><input class="input" type="date" value="1982-03-15"></div>
+      <div class="field-gap"><label class="label">Email address</label><input class="input" type="email" value="sarah@example.com"></div>
+      <div class="field-gap"><label class="label">Sex at birth</label>
+        <select class="input"><option value="female" selected>Female</option><option>Male</option><option>Prefer not to say</option></select>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Your health conditions</div>
+    <div class="card">
+      <div class="cond-grid">
+        <div class="cond-item checked" onclick="this.classList.toggle('checked')"><input type="checkbox" checked>&#129755; Respiratory</div>
+        <div class="cond-item checked" onclick="this.classList.toggle('checked')"><input type="checkbox" checked>&#10084; Cardiovascular</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#129704; Digestive</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#129459; Musculoskeletal</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#129761; Neurological</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#127997; Skin</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#129504; Endocrine</div>
+        <div class="cond-item checked" onclick="this.classList.toggle('checked')"><input type="checkbox" checked>&#129978; Liver &amp; Gallbladder</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#129762; Kidney</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#128299; Surgery history</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#127803; Gynaecological</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#8230; Other</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Family health history</div>
+    <div class="card">
+      <div class="cond-grid">
+        <div class="cond-item checked" onclick="this.classList.toggle('checked')"><input type="checkbox" checked>&#10084; Heart disease</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#127799; Cancer</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#129504; Diabetes</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#129761; Stroke</div>
+        <div class="cond-item checked" onclick="this.classList.toggle('checked')"><input type="checkbox" checked>&#129978; Liver disease</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#129762; Kidney disease</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#127775; Mental health</div>
+        <div class="cond-item" onclick="this.classList.toggle('checked')"><input type="checkbox">&#129755; Respiratory</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:70px"></div>
+</div>
+<div class="save-bar" style="left:50%;transform:translateX(-50%);width:100%;max-width:480px;bottom:0;position:fixed">
+  <button class="btn btn-primary" style="flex:2" onclick="window.location.href='05_Result_YunQiPro.html'">&#10003; Save &amp; recalculate</button>
+  <button class="btn" style="flex:1;border:0.5px solid #b4b2a9;background:#fff;color:#5f5e5a;margin-top:0" onclick="window.location.href='06_Dashboard_YunQiPro.html'">Cancel</button>
+</div>
+</body></html>
