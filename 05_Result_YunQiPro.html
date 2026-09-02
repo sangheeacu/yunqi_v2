@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your Yùn Qì analysis — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18}
+.hdr{background:#fff;border-bottom:0.5px solid #e0ded6;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:15px;font-weight:600}.logo span{color:#534AB7}
+.hdr-nav{display:flex;gap:10px}
+.hdr-btn{font-size:12px;color:#5f5e5a;background:none;border:0.5px solid #e0ded6;border-radius:6px;padding:5px 10px;cursor:pointer;text-decoration:none}
+.container{max-width:480px;margin:0 auto;padding:20px 16px 40px}
+/* Hero summary */
+.summary-card{background:linear-gradient(135deg,#2E2873,#534AB7);border-radius:16px;padding:22px;margin-bottom:16px;color:#EEEDFE}
+.sc-label{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.sc-name{font-size:20px;font-weight:600;margin-bottom:2px}
+.sc-meta{font-size:12px;color:rgba(255,255,255,.7);margin-bottom:16px}
+.sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sc-stat{text-align:center}.sc-num{font-size:22px;font-weight:600}.sc-slabel{font-size:10px;color:rgba(255,255,255,.6);margin-top:2px}
+.sc-year-tag{background:rgba(255,255,255,.15);border:0.5px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 12px;font-size:11px;display:inline-block;margin-top:12px}
+/* Section */
+.section-hdr{font-size:13px;font-weight:600;color:#1a1a18;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.section-hdr span{font-size:11px;color:#534AB7;font-weight:400;cursor:pointer}
+/* Risk period cards */
+.risk-card{border-radius:11px;padding:14px;margin-bottom:8px;display:flex;gap:12px}
+.risk-high{background:#FCEBEB;border:0.5px solid #F7C1C1}
+.risk-mid{background:#FAEEDA;border:0.5px solid #FAC775}
+.risk-low{background:#E1F5EE;border:0.5px solid #9FE1CB}
+.risk-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.risk-body{flex:1}
+.risk-title{font-size:13px;font-weight:600;margin-bottom:3px}
+.risk-dates{font-size:11px;font-weight:500;margin-bottom:4px;opacity:.75}
+.risk-desc{font-size:12px;line-height:1.55;opacity:.85}
+.risk-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.risk-tag{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500}
+.tag-high{background:rgba(226,75,74,.15);color:#791F1F}
+.tag-mid{background:rgba(186,117,23,.15);color:#633806}
+.tag-low{background:rgba(29,158,117,.15);color:#085041}
+/* White card */
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;padding:16px;margin-bottom:12px}
+/* Booking CTA */
+.booking-card{background:#fff;border:1.5px solid #534AB7;border-radius:14px;padding:20px;margin-bottom:12px;text-align:center}
+.bc-title{font-size:16px;font-weight:600;margin-bottom:6px}
+.bc-sub{font-size:13px;color:#5f5e5a;line-height:1.55;margin-bottom:16px}
+.bc-btn{display:block;width:100%;padding:13px;background:#534AB7;color:#EEEDFE;border:none;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;text-align:center;margin-bottom:8px}
+.bc-btn:hover{opacity:.88}
+.bc-note{font-size:11px;color:#888780}
+/* Year toggle */
+.year-tabs{display:flex;gap:6px;margin-bottom:14px}
+.year-tab{padding:7px 16px;border-radius:20px;font-size:13px;cursor:pointer;border:0.5px solid #e0ded6;background:#fff;color:#5f5e5a;font-weight:500}
+.year-tab.active{background:#534AB7;color:#EEEDFE;border-color:#534AB7}
+/* Yun Qi details */
+.yq-row{display:flex;gap:8px;margin-bottom:8px}
+.yq-pill{flex:1;background:#EEEDFE;border:0.5px solid #AFA9EC;border-radius:8px;padding:9px 11px;font-size:12px}
+.yq-pill-label{font-size:10px;color:#534AB7;font-weight:500;margin-bottom:2px;text-transform:uppercase;letter-spacing:.04em}
+.yq-pill-val{font-size:13px;font-weight:600;color:#3C3489}
+.yq-pill-cn{font-size:11px;color:#534AB7}
+</style>
+</head><body>
+<div class="hdr">
+  <div class="logo">Yùn Qì <span>Pro</span></div>
+  <div class="hdr-nav">
+    <a href="06_Dashboard_YunQiPro.html" class="hdr-btn">&#127968; Dashboard</a>
+    <a href="07_EditProfile_YunQiPro.html" class="hdr-btn">&#9998; Edit</a>
+    <a href="08_Notifications_YunQiPro.html" class="hdr-btn">&#128276;</a>
+  </div>
+</div>
+<div class="container">
+
+  <!-- Summary hero -->
+  <div class="summary-card">
+    <div class="sc-label">Your personalised analysis</div>
+    <div class="sc-name" id="sc-name">Sarah Kim</div>
+    <div class="sc-meta" id="sc-meta">Born: 15 March 1982 &middot; 甲戌 Jiǎ Xū year &middot; 木 Wood</div>
+    <div class="sc-grid">
+      <div class="sc-stat"><div class="sc-num" style="color:#F7C1C1">3</div><div class="sc-slabel">High-risk periods</div></div>
+      <div class="sc-stat"><div class="sc-num" style="color:#FAC775">4</div><div class="sc-slabel">Caution periods</div></div>
+      <div class="sc-stat"><div class="sc-num" style="color:#9FE1CB">5</div><div class="sc-slabel">Favourable periods</div></div>
+    </div>
+    <div class="sc-year-tag">&#128197; 2026 丙午 Bǐng Wǔ analysis</div>
+  </div>
+
+  <!-- Year tabs -->
+  <div class="year-tabs">
+    <div class="year-tab active" onclick="setYear(this,'2026')">2026 丙午</div>
+    <div class="year-tab" onclick="setYear(this,'2027')">2027 丁未</div>
+  </div>
+
+  <!-- Yun Qi framework -->
+  <div class="section-hdr">This year's Yùn Qì framework <span>What is this? &#9432;</span></div>
+  <div class="yq-row">
+    <div class="yq-pill"><div class="yq-pill-label">Sī Tiān 司天</div><div class="yq-pill-val">Shào Yīn</div><div class="yq-pill-cn">少陰君火 Emperor Fire</div></div>
+    <div class="yq-pill"><div class="yq-pill-label">Zài Quán 在泉</div><div class="yq-pill-val">Yáng Míng</div><div class="yq-pill-cn">陽明燥金 Dryness Metal</div></div>
+  </div>
+  <div class="yq-row">
+    <div class="yq-pill"><div class="yq-pill-label">Dà Yùn 大運</div><div class="yq-pill-val">Shuǐ Tài Guò</div><div class="yq-pill-cn">水太過 Water excess</div></div>
+    <div class="yq-pill"><div class="yq-pill-label">Your element</div><div class="yq-pill-val">Wood 木</div><div class="yq-pill-cn">沖剋 Clashing with Water excess</div></div>
+  </div>
+
+  <!-- Risk periods -->
+  <div class="section-hdr" style="margin-top:6px">&#128197; Your risk calendar 2026 <span>Download PDF &#8595;</span></div>
+
+  <div class="risk-card risk-high">
+    <div class="risk-icon">&#128308;</div>
+    <div class="risk-body">
+      <div class="risk-title">High risk &mdash; Kè Qì Step 1</div>
+      <div class="risk-dates">&#128197; 20 Jan &ndash; 19 Mar 2026</div>
+      <div class="risk-desc">太陽寒水 Tài Yáng Cold Water governs. Your Wood constitution clashes directly with Cold Water invasion — Liver and Kidney meridians most vulnerable. Your respiratory and cardiovascular conditions require close attention during this period.</div>
+      <div class="risk-tags">
+        <span class="risk-tag tag-high">Respiratory &#9651;</span>
+        <span class="risk-tag tag-high">Cardiovascular &#9651;</span>
+        <span class="risk-tag tag-high">Liver &#9651;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-card risk-mid">
+    <div class="risk-icon">&#128992;</div>
+    <div class="risk-body">
+      <div class="risk-title">Caution &mdash; Kè Qì Step 2</div>
+      <div class="risk-dates">&#128197; 20 Mar &ndash; 21 May 2026</div>
+      <div class="risk-desc">厥陰風木 Jué Yīn Wind Wood governs. Same element as your constitution — excessive Wood Qì can lead to Liver overactivity. Watch for digestive and nervous system symptoms.</div>
+      <div class="risk-tags">
+        <span class="risk-tag tag-mid">Digestive &#9651;</span>
+        <span class="risk-tag tag-mid">Neurological &#9651;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-card risk-low">
+    <div class="risk-icon">&#128994;</div>
+    <div class="risk-body">
+      <div class="risk-title">Favourable &mdash; Kè Qì Step 3</div>
+      <div class="risk-dates">&#128197; 21 May &ndash; 22 Jul 2026</div>
+      <div class="risk-desc">少陰君火 Shào Yīn Emperor Fire governs as Sī Tiān. Fire nourishes your Wood element — this is a good period for treatment, procedures, and building vitality.</div>
+      <div class="risk-tags">
+        <span class="risk-tag tag-low">Good for treatment &#10003;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-card risk-mid">
+    <div class="risk-icon">&#128992;</div>
+    <div class="risk-body">
+      <div class="risk-title">Caution &mdash; Kè Qì Step 4</div>
+      <div class="risk-dates">&#128197; 22 Jul &ndash; 22 Sep 2026</div>
+      <div class="risk-desc">太陰濕土 Tài Yīn Damp Earth governs. Wood controls Earth — your body is working hard to maintain balance. Digestive and musculoskeletal conditions may flare.</div>
+      <div class="risk-tags">
+        <span class="risk-tag tag-mid">Digestive &#9651;</span>
+        <span class="risk-tag tag-mid">Musculoskeletal &#9651;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-card risk-high">
+    <div class="risk-icon">&#128308;</div>
+    <div class="risk-body">
+      <div class="risk-title">High risk &mdash; Kè Qì Step 5</div>
+      <div class="risk-dates">&#128197; 22 Sep &ndash; 21 Nov 2026</div>
+      <div class="risk-desc">少陽相火 Shào Yáng Minister Fire governs with Zài Quán 陽明燥金. Fire–Metal conflict creates internal dryness. Respiratory conditions and skin are at highest risk this season in Sydney.</div>
+      <div class="risk-tags">
+        <span class="risk-tag tag-high">Respiratory &#9651;&#9651;</span>
+        <span class="risk-tag tag-high">Skin &#9651;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-card risk-high">
+    <div class="risk-icon">&#128308;</div>
+    <div class="risk-body">
+      <div class="risk-title">High risk &mdash; Kè Qì Step 6</div>
+      <div class="risk-dates">&#128197; 21 Nov &ndash; 19 Jan 2027</div>
+      <div class="risk-desc">陽明燥金 Yáng Míng Dryness Metal governs. Metal controls Wood — your constitution is most challenged. Liver, Lung, and Kidney meridians all under stress simultaneously.</div>
+      <div class="risk-tags">
+        <span class="risk-tag tag-high">Liver &#9651;&#9651;</span>
+        <span class="risk-tag tag-high">Respiratory &#9651;&#9651;</span>
+        <span class="risk-tag tag-high">Kidney &#9651;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking CTA -->
+  <div class="booking-card" style="margin-top:20px">
+    <div style="font-size:28px;margin-bottom:10px">&#127807;</div>
+    <div class="bc-title">Prepare before your risk periods</div>
+    <div class="bc-sub">You have 3 high-risk periods in 2026. A Yùn Qì consultation with Dr Sang Hee Park can help you strengthen vulnerable meridians before they arrive — prevention is always more effective than treatment.</div>
+    <a href="https://blossom-skin-and-health-acupuncture-clinic.au2.cliniko.com/bookings" class="bc-btn" target="_blank">&#128197; Book a consultation at Blossom Skin &amp; Health</a>
+    <div class="bc-note">Acupuncture &amp; TCM &middot; Sydney &middot; AHPRA registered</div>
+  </div>
+
+  <!-- Email confirmation -->
+  <div class="card">
+    <div style="font-size:13px;font-weight:600;margin-bottom:6px">&#128140; Analysis sent to your inbox</div>
+    <div style="font-size:12px;color:#5f5e5a;line-height:1.6;margin-bottom:10px">We've emailed you this full analysis. You'll also receive automatic reminders <strong>2 weeks before each high-risk period</strong> — so you have time to book and prepare.</div>
+    <a href="08_Notifications_YunQiPro.html" style="font-size:12px;color:#534AB7;text-decoration:none">Manage notification settings &#8594;</a>
+  </div>
+
+  <!-- Disclaimer -->
+  <p style="font-size:11px;color:#888780;line-height:1.5;text-align:center">This analysis is based on Classical Chinese Medicine principles and is for general wellness education only. It does not constitute medical diagnosis or advice. Always consult a qualified health professional regarding medical conditions. AHPRA advertising compliant.</p>
+
+</div>
+<script>
+function setYear(el,y){
+  document.querySelectorAll('.year-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
+</body></html>
