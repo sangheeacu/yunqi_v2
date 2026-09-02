@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Check your email — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18;min-height:100vh;display:flex;flex-direction:column}
+.hdr{background:#fff;border-bottom:0.5px solid #e0ded6;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:15px;font-weight:600}.logo span{color:#534AB7}
+.container{max-width:440px;margin:0 auto;padding:40px 16px;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.icon-wrap{width:72px;height:72px;background:#EEEDFE;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 20px}
+h1{font-size:22px;font-weight:600;text-align:center;margin-bottom:8px}
+.sub{font-size:14px;color:#5f5e5a;text-align:center;line-height:1.6;margin-bottom:28px}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:14px;padding:20px;width:100%;margin-bottom:16px}
+.email-display{background:#f4f3f0;border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;text-align:center;margin-bottom:14px;word-break:break-all}
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#5f5e5a}
+.step-num{width:22px;height:22px;border-radius:50%;background:#534AB7;color:#EEEDFE;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.btn{width:100%;padding:12px;border-radius:9px;font-size:14px;font-weight:500;cursor:pointer;border:0.5px solid #b4b2a9;background:#fff;color:#5f5e5a;margin-bottom:8px}
+.divider{height:0.5px;background:#e0ded6;margin:16px 0}
+.note{font-size:11px;color:#888780;text-align:center;line-height:1.5}
+.sim-note{font-size:11px;color:#888780;text-align:center;margin-top:16px;padding:10px;border:0.5px dashed #b4b2a9;border-radius:8px}
+</style>
+</head><body>
+<div class="hdr">
+  <div class="logo">Yùn Qì <span>Pro</span></div>
+  <a href="01_Landing_YunQiPro.html" style="font-size:12px;color:#888780;text-decoration:none">&#8592; Back</a>
+</div>
+<div class="container">
+  <div class="icon-wrap">&#128140;</div>
+  <h1>Check your inbox</h1>
+  <p class="sub">We've sent a secure access link to:</p>
+  <div class="card">
+    <div class="email-display" id="email-display">your@email.com</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div>Open the email from <strong>Yùn Qì Pro</strong> (check spam if needed)</div></div>
+      <div class="step"><div class="step-num">2</div><div>Click the <strong>"Access my analysis"</strong> button in the email</div></div>
+      <div class="step"><div class="step-num">3</div><div>You'll be taken directly to your personalised health risk calendar</div></div>
+    </div>
+    <div class="divider"></div>
+    <div style="font-size:12px;color:#888780;text-align:center">Link expires in <strong>24 hours</strong> &middot; No password needed</div>
+  </div>
+  <button class="btn" onclick="resend()">&#8635;&nbsp; Resend email</button>
+  <button class="btn" onclick="window.location.href='03_EmailError_YunQiPro.html'">&#9993;&nbsp; Wrong email? Change it</button>
+  <div class="note">Didn't receive it within 2 minutes?<br>Check your spam folder or try a different email address.</div>
+  <div class="sim-note">&#128279; <strong>Demo navigation:</strong>
+    <a href="04_Profile_YunQiPro.html" style="color:#534AB7;text-decoration:none">First visit → Profile form</a>
+    &nbsp;&middot;&nbsp;
+    <a href="06_Dashboard_YunQiPro.html" style="color:#534AB7;text-decoration:none">Return visit → Dashboard</a>
+  </div>
+</div>
+<script>
+const em=sessionStorage.getItem('yq_email');
+if(em)document.getElementById('email-display').textContent=em;
+function resend(){
+  const b=document.querySelectorAll('.btn')[0];
+  b.textContent='✓ Sent again!';b.style.color='#1D9E75';
+  setTimeout(()=>{b.innerHTML='&#8635;&nbsp; Resend email';b.style.color=''},3000);
+}
+</script>
+</body></html>
