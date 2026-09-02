@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>My dashboard — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18}
+.hdr{background:#fff;border-bottom:0.5px solid #e0ded6;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:15px;font-weight:600}.logo span{color:#534AB7}
+.hdr-nav{display:flex;gap:8px}
+.hdr-btn{font-size:12px;color:#5f5e5a;background:none;border:0.5px solid #e0ded6;border-radius:6px;padding:5px 10px;cursor:pointer;text-decoration:none}
+.container{max-width:480px;margin:0 auto;padding:20px 16px 40px}
+.greeting{margin-bottom:18px}
+.greeting h1{font-size:20px;font-weight:600}
+.greeting p{font-size:13px;color:#5f5e5a;margin-top:3px}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;padding:16px;margin-bottom:12px}
+.section-hdr{font-size:13px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.section-hdr a{font-size:11px;color:#534AB7;text-decoration:none}
+/* Alert banner */
+.alert-banner{border-radius:12px;padding:14px 16px;margin-bottom:12px;display:flex;gap:12px;align-items:flex-start}
+.alert-high{background:#FCEBEB;border:0.5px solid #F7C1C1}
+.alert-mid{background:#FAEEDA;border:0.5px solid #FAC775}
+.alert-icon{font-size:22px;flex-shrink:0}
+.alert-body{flex:1}
+.alert-title{font-size:13px;font-weight:600;margin-bottom:3px}
+.alert-desc{font-size:12px;line-height:1.5;opacity:.85}
+.alert-btn{margin-top:10px;display:inline-block;padding:7px 14px;background:#534AB7;color:#EEEDFE;border:none;border-radius:7px;font-size:12px;font-weight:500;cursor:pointer;text-decoration:none}
+/* Mini calendar */
+.mini-cal{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+.mc-item{border-radius:7px;padding:8px 4px;text-align:center;font-size:11px;font-weight:500;border:0.5px solid #e0ded6}
+.mc-high{background:#FCEBEB;border-color:#F7C1C1;color:#791F1F}
+.mc-mid{background:#FAEEDA;border-color:#FAC775;color:#633806}
+.mc-low{background:#E1F5EE;border-color:#9FE1CB;color:#085041}
+.mc-current{border-color:#534AB7;border-width:1.5px}
+/* Menu list */
+.menu-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:0.5px solid #f0ede8;text-decoration:none;color:inherit}
+.menu-item:last-child{border-bottom:none}
+.menu-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.menu-body{flex:1}
+.menu-title{font-size:13px;font-weight:500}
+.menu-sub{font-size:11px;color:#888780;margin-top:1px}
+.menu-arrow{font-size:14px;color:#b4b2a9}
+.badge{display:inline-flex;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:500;background:#EEEDFE;color:#3C3489}
+</style>
+</head><body>
+<div class="hdr">
+  <div class="logo">Yùn Qì <span>Pro</span></div>
+  <div class="hdr-nav">
+    <a href="08_Notifications_YunQiPro.html" class="hdr-btn">&#128276; Alerts</a>
+    <a href="07_EditProfile_YunQiPro.html" class="hdr-btn">&#9998; Profile</a>
+  </div>
+</div>
+<div class="container">
+  <div class="greeting">
+    <h1>Good morning, Sarah &#9728;</h1>
+    <p>Wednesday, 3 September 2026 &middot; 丙午 Bǐng Wǔ year &middot; Step 5 of 6</p>
+  </div>
+
+  <!-- Active alert -->
+  <div class="alert-banner alert-high">
+    <div class="alert-icon">&#128308;</div>
+    <div class="alert-body">
+      <div class="alert-title">&#9888; High-risk period active now</div>
+      <div class="alert-desc">少陽相火 Shào Yáng Minister Fire is currently governing (22 Sep – 21 Nov). Your respiratory and skin conditions are at elevated risk during this period.</div>
+      <a href="05_Result_YunQiPro.html" class="alert-btn">View full analysis</a>
+    </div>
+  </div>
+
+  <!-- Upcoming -->
+  <div class="alert-banner alert-mid">
+    <div class="alert-icon">&#9203;</div>
+    <div class="alert-body">
+      <div class="alert-title">Next high-risk period in 79 days</div>
+      <div class="alert-desc">陽明燥金 Yáng Míng Dryness Metal begins 21 Nov 2026 — your highest-risk period of the year. Book a preventive consultation before it starts.</div>
+      <a href="https://blossom-skin-and-health-acupuncture-clinic.au2.cliniko.com/bookings" class="alert-btn" target="_blank">Book now &#128197;</a>
+    </div>
+  </div>
+
+  <!-- 2026 mini calendar -->
+  <div class="section-hdr">2026 risk overview <a href="05_Result_YunQiPro.html">Full analysis &#8594;</a></div>
+  <div class="card" style="padding:12px">
+    <div class="mini-cal">
+      <div class="mc-item mc-high mc-current">Jan–Mar<br>&#128308;</div>
+      <div class="mc-item mc-mid">Mar–May<br>&#128992;</div>
+      <div class="mc-item mc-low">May–Jul<br>&#128994;</div>
+      <div class="mc-item mc-mid">Jul–Sep<br>&#128992;</div>
+      <div class="mc-item mc-high">Sep–Nov<br>&#128308;</div>
+      <div class="mc-item mc-high">Nov–Jan<br>&#128308;</div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:10px;font-size:10px;color:#888780;justify-content:center">
+      <span>&#128308; High risk (3)</span>
+      <span>&#128992; Caution (2)</span>
+      <span>&#128994; Favourable (1)</span>
+    </div>
+  </div>
+
+  <!-- Quick menu -->
+  <div class="section-hdr" style="margin-top:8px">Quick access</div>
+  <div class="card" style="padding:4px 14px">
+    <a href="05_Result_YunQiPro.html" class="menu-item">
+      <div class="menu-icon" style="background:#EEEDFE">&#128197;</div>
+      <div class="menu-body"><div class="menu-title">My full analysis</div><div class="menu-sub">2026 & 2027 risk periods</div></div>
+      <div class="menu-arrow">&#8250;</div>
+    </a>
+    <a href="07_EditProfile_YunQiPro.html" class="menu-item">
+      <div class="menu-icon" style="background:#E1F5EE">&#128100;</div>
+      <div class="menu-body"><div class="menu-title">Edit my health profile</div><div class="menu-sub">Update conditions & family history</div></div>
+      <div class="menu-arrow">&#8250;</div>
+    </a>
+    <a href="08_Notifications_YunQiPro.html" class="menu-item">
+      <div class="menu-icon" style="background:#FAEEDA">&#128276;</div>
+      <div class="menu-body"><div class="menu-title">Notification settings</div><div class="menu-sub">Manage alert preferences <span class="badge">3 on</span></div></div>
+      <div class="menu-arrow">&#8250;</div>
+    </a>
+    <a href="https://blossom-skin-and-health-acupuncture-clinic.au2.cliniko.com/bookings" class="menu-item" target="_blank">
+      <div class="menu-icon" style="background:#f4f3f0">&#127807;</div>
+      <div class="menu-body"><div class="menu-title">Book a consultation</div><div class="menu-sub">Blossom Skin &amp; Health, Sydney</div></div>
+      <div class="menu-arrow">&#8250;</div>
+    </a>
+    <a href="09_Unsubscribe_YunQiPro.html" class="menu-item">
+      <div class="menu-icon" style="background:#f4f3f0">&#128274;</div>
+      <div class="menu-body"><div class="menu-title">Unsubscribe from emails</div><div class="menu-sub">Stop all notifications</div></div>
+      <div class="menu-arrow">&#8250;</div>
+    </a>
+  </div>
+
+  <p style="font-size:11px;color:#888780;text-align:center;line-height:1.5;margin-top:16px">This analysis is for general wellness information only and does not constitute medical advice. AHPRA compliant.<br><a href="10_Admin_YunQiPro.html" style="color:#b4b2a9;font-size:10px;text-decoration:none">Admin panel</a></p>
+</div>
+</body></html>
