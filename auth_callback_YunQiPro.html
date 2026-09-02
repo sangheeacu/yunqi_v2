@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Signing you in… — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:16px;padding:40px 28px;text-align:center;max-width:360px;width:100%}
+.spinner{width:40px;height:40px;border:3px solid #e0ded6;border-top-color:#534AB7;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 20px}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{font-size:18px;font-weight:600;margin-bottom:8px}
+p{font-size:13px;color:#888780;line-height:1.6}
+.err{color:#E24B4A;font-size:13px;margin-top:16px;display:none}
+</style>
+</head><body>
+<div class="card">
+  <div class="spinner"></div>
+  <h1>Signing you in…</h1>
+  <p>Just a moment while we verify your magic link.</p>
+  <div class="err" id="err"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL = 'https://dqcxpevxkbgwqqzackjd.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_heu08gTrMkKGkPQctC7AZw_nsN6Yd7l';
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function handleAuth(){
+  const { data, error } = await _supabase.auth.getSession();
+  if(error || !data.session){
+    // URL hash에서 토큰 처리 시도
+    const { data: d2, error: e2 } = await _supabase.auth.exchangeCodeForSession(window.location.href);
+    if(e2){
+      document.getElementById('err').textContent = 'Link expired or invalid. Please request a new one.';
+      document.getElementById('err').style.display='block';
+      document.querySelector('.spinner').style.display='none';
+      setTimeout(()=>{ window.location.href='03_EmailError_YunQiPro.html'; }, 2000);
+      return;
+    }
+  }
+
+  const { data: { user } } = await _supabase.auth.getUser();
+  if(user){
+    // users 테이블에 이미 프로필 있는지 확인
+    const { data: profile } = await _supabase
+      .from('users')
+      .select('id')
+      .eq('id', user.id)
+      .single();
+
+    if(profile){
+      window.location.href = '06_Dashboard_YunQiPro.html';
+    } else {
+      window.location.href = '04_Profile_YunQiPro.html';
+    }
+  } else {
+    window.location.href = '03_EmailError_YunQiPro.html';
+  }
+}
+
+handleAuth();
+</script>
+</body></html>
