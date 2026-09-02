@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Email issue — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18;min-height:100vh;display:flex;flex-direction:column}
+.hdr{background:#fff;border-bottom:0.5px solid #e0ded6;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:15px;font-weight:600}.logo span{color:#534AB7}
+.container{max-width:440px;margin:0 auto;padding:40px 16px;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.icon-wrap{width:72px;height:72px;background:#FCEBEB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 20px}
+h1{font-size:22px;font-weight:600;text-align:center;margin-bottom:8px}
+.sub{font-size:14px;color:#5f5e5a;text-align:center;line-height:1.6;margin-bottom:24px}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:14px;padding:20px;width:100%;margin-bottom:12px}
+.label{font-size:12px;font-weight:500;color:#5f5e5a;margin-bottom:6px;display:block}
+.input{width:100%;padding:11px 13px;border:0.5px solid #b4b2a9;border-radius:8px;font-size:15px;color:#1a1a18;outline:none}
+.input:focus{border-color:#534AB7;box-shadow:0 0 0 3px rgba(83,74,183,.1)}
+.input.err{border-color:#E24B4A}
+.err-msg{font-size:12px;color:#E24B4A;margin-top:5px;display:none}
+.btn{width:100%;padding:12px;border-radius:9px;font-size:14px;font-weight:500;cursor:pointer;border:none;margin-top:12px}
+.btn-primary{background:#534AB7;color:#EEEDFE}
+.btn-secondary{background:#fff;color:#5f5e5a;border:0.5px solid #b4b2a9;margin-top:8px}
+.issue-list{display:flex;flex-direction:column;gap:8px}
+.issue-item{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;background:#FCEBEB;border:0.5px solid #F7C1C1;border-radius:8px;font-size:12px;color:#791F1F}
+.issue-item-amber{background:#FAEEDA;border-color:#FAC775;color:#633806}
+</style>
+</head><body>
+<div class="hdr">
+  <div class="logo">Yùn Qì <span>Pro</span></div>
+  <a href="01_Landing_YunQiPro.html" style="font-size:12px;color:#888780;text-decoration:none">&#8592; Back</a>
+</div>
+<div class="container">
+  <div class="icon-wrap">&#9888;</div>
+  <h1>Having trouble?</h1>
+  <p class="sub">Update your email address or check the common issues below.</p>
+
+  <div class="card">
+    <label class="label">Enter a different email address</label>
+    <input class="input" type="email" id="email" placeholder="you@example.com">
+    <div class="err-msg" id="err">Please enter a valid email address.</div>
+    <button class="btn btn-primary" onclick="retry()">&#128274; Send new access link</button>
+    <button class="btn btn-secondary" onclick="window.location.href='01_Landing_YunQiPro.html'">&#8592; Back to start</button>
+  </div>
+
+  <div style="font-size:13px;font-weight:500;margin-bottom:10px;align-self:flex-start">Common issues</div>
+  <div class="issue-list" style="width:100%">
+    <div class="issue-item">&#128233;&nbsp;<div><strong>Not in inbox?</strong> Check your Spam or Promotions folder — our email may have been filtered.</div></div>
+    <div class="issue-item issue-item-amber">&#9203;&nbsp;<div><strong>Link expired?</strong> Access links are valid for 24 hours. Request a new one above.</div></div>
+    <div class="issue-item issue-item-amber">&#128204;&nbsp;<div><strong>Wrong email?</strong> Enter the correct address above to receive a fresh link.</div></div>
+  </div>
+</div>
+<script>
+function retry(){
+  const v=document.getElementById('email').value.trim();
+  const err=document.getElementById('err');
+  const inp=document.getElementById('email');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
+    err.style.display='block';inp.classList.add('err');return;
+  }
+  err.style.display='none';inp.classList.remove('err');
+  sessionStorage.setItem('yq_email',v);
+  window.location.href='02_EmailSent_YunQiPro.html';
+}
+</script>
+</body></html>
