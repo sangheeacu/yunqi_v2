@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Yùn Qì Pro — Know Your Risk Periods</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f4f3f0;color:#1a1a18;min-height:100vh}
+.hero{background:linear-gradient(145deg,#2E2873,#534AB7);min-height:100vh;display:flex;flex-direction:column}
+.hdr{padding:18px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:16px;font-weight:600;color:#EEEDFE}.logo span{color:#AFA9EC}
+.ahpra{font-size:10px;color:rgba(255,255,255,.5);text-align:right;line-height:1.4}
+.hero-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px 20px;text-align:center}
+.hero-badge{background:rgba(255,255,255,.15);border:0.5px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 14px;font-size:11px;color:#EEEDFE;margin-bottom:20px;display:inline-block}
+.hero-title{font-size:28px;font-weight:600;color:#EEEDFE;line-height:1.3;margin-bottom:10px}
+.hero-title span{color:#AFA9EC}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.7);line-height:1.6;max-width:340px;margin:0 auto 32px}
+.card{background:#fff;border-radius:16px;padding:24px;max-width:420px;width:100%;margin:0 auto}
+.card-title{font-size:15px;font-weight:600;margin-bottom:4px}
+.card-sub{font-size:12px;color:#888780;margin-bottom:18px}
+.label{font-size:12px;font-weight:500;color:#5f5e5a;margin-bottom:6px;display:block}
+.input{width:100%;padding:12px 14px;border:0.5px solid #b4b2a9;border-radius:9px;font-size:15px;color:#1a1a18;outline:none;background:#fff}
+.input:focus{border-color:#534AB7;box-shadow:0 0 0 3px rgba(83,74,183,.1)}
+.btn{width:100%;padding:13px;background:#534AB7;color:#EEEDFE;border:none;border-radius:9px;font-size:15px;font-weight:500;cursor:pointer;margin-top:14px;transition:opacity .15s}
+.btn:hover{opacity:.88}
+.err{font-size:12px;color:#E24B4A;margin-top:6px;display:none}
+.divider{display:flex;align-items:center;gap:10px;margin:16px 0}
+.divider hr{flex:1;border:none;border-top:0.5px solid #e0ded6}
+.divider span{font-size:11px;color:#888780}
+.features{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;max-width:420px;width:100%;margin:24px auto 0}
+.feat{background:rgba(255,255,255,.1);border:0.5px solid rgba(255,255,255,.15);border-radius:10px;padding:12px;text-align:center}
+.feat-icon{font-size:20px;margin-bottom:6px}
+.feat-label{font-size:11px;color:rgba(255,255,255,.8);font-weight:500}
+.feat-sub{font-size:10px;color:rgba(255,255,255,.5);margin-top:2px}
+.footer-note{font-size:10px;color:rgba(255,255,255,.4);padding:20px;text-align:center;max-width:420px;margin:0 auto}
+</style>
+</head><body>
+<div class="hero">
+  <div class="hdr">
+    <div class="logo">Yùn Qì <span>Pro</span></div>
+    <div class="ahpra">AHPRA registered<br>acupuncturist</div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-badge">&#127758; Based on Wǔ Yùn Liù Qì 五運六氣</div>
+    <h1 class="hero-title">Know your <span>health risk periods</span> before they arrive</h1>
+    <p class="hero-sub">Enter your email to receive a personalised Yùn Qì analysis based on your birth date and health conditions — free, no password needed.</p>
+
+    <div class="card">
+      <div class="card-title">Get your free analysis</div>
+      <div class="card-sub">We'll send a magic link to your inbox — no password required</div>
+      <label class="label">Your email address</label>
+      <input class="input" type="email" id="email" placeholder="you@example.com" autocomplete="email">
+      <div class="err" id="err">Please enter a valid email address.</div>
+      <button class="btn" onclick="submit()">&#128274; Send my access link</button>
+      <div class="divider"><hr><span>What you'll get</span><hr></div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5f5e5a">&#10003;&nbsp;<strong style="color:#1a1a18">Your 2026 & 2027 risk calendar</strong> — exact dates to watch</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5f5e5a">&#10003;&nbsp;<strong style="color:#1a1a18">Condition-specific alerts</strong> — matched to your health history</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5f5e5a">&#10003;&nbsp;<strong style="color:#1a1a18">Seasonal email reminders</strong> — before each risk period</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5f5e5a">&#10003;&nbsp;<strong style="color:#1a1a18">Unsubscribe any time</strong> — one click in every email</div>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feat"><div class="feat-icon">&#128197;</div><div class="feat-label">Personalised</div><div class="feat-sub">by birth date</div></div>
+      <div class="feat"><div class="feat-icon">&#128274;</div><div class="feat-label">No password</div><div class="feat-sub">magic link</div></div>
+      <div class="feat"><div class="feat-icon">&#127389;</div><div class="feat-label">Free forever</div><div class="feat-sub">no credit card</div></div>
+    </div>
+  </div>
+  <div class="footer-note">This tool is for general wellness information only. It does not constitute medical advice. Always consult a qualified health professional regarding any medical condition. — Dr Sang Hee Park, AHPRA registered acupuncturist.</div>
+</div>
+<script>
+function submit(){
+  const v=document.getElementById('email').value.trim();
+  const err=document.getElementById('err');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){err.style.display='block';return;}
+  err.style.display='none';
+  sessionStorage.setItem('yq_email',v);
+  window.location.href='02_EmailSent_YunQiPro.html';
+}
+document.getElementById('email').addEventListener('keydown',e=>{if(e.key==='Enter')submit()});
+</script>
+</body></html>
