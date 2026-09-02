@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Notification settings — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18}
+.hdr{background:#fff;border-bottom:0.5px solid #e0ded6;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:15px;font-weight:600}.logo span{color:#534AB7}
+.container{max-width:480px;margin:0 auto;padding:20px 16px 40px}
+.section{margin-bottom:18px}
+.section-title{font-size:12px;font-weight:600;color:#534AB7;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;padding:0 16px}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:0.5px solid #f0ede8}
+.toggle-row:last-child{border-bottom:none}
+.tr-body{flex:1;margin-right:14px}
+.tr-title{font-size:13px;font-weight:500}
+.tr-sub{font-size:11px;color:#888780;margin-top:2px;line-height:1.4}
+.switch{position:relative;width:42px;height:24px;flex-shrink:0}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;inset:0;background:#b4b2a9;border-radius:24px;cursor:pointer;transition:.3s}
+.slider:before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.3s}
+input:checked+.slider{background:#534AB7}
+input:checked+.slider:before{transform:translateX(18px)}
+.btn{width:100%;padding:12px;border-radius:9px;font-size:14px;font-weight:500;cursor:pointer;border:none;margin-bottom:8px}
+.btn-primary{background:#534AB7;color:#EEEDFE}
+.btn-danger{background:#fff;color:#E24B4A;border:0.5px solid #E24B4A}
+.timing-select{width:100%;padding:9px 12px;border:0.5px solid #b4b2a9;border-radius:8px;font-size:13px;margin-top:8px;background:#fff;outline:none}
+.timing-select:focus{border-color:#534AB7}
+.info-box{background:#EEEDFE;border:0.5px solid #AFA9EC;border-radius:10px;padding:12px 14px;font-size:12px;color:#3C3489;line-height:1.55;margin-bottom:12px}
+</style>
+</head><body>
+<div class="hdr">
+  <div class="logo">Yùn Qì <span>Pro</span></div>
+  <a href="06_Dashboard_YunQiPro.html" style="font-size:12px;color:#888780;text-decoration:none">&#8592; Dashboard</a>
+</div>
+<div class="container">
+  <h1 style="font-size:18px;font-weight:600;margin-bottom:4px">Notification settings</h1>
+  <p style="font-size:13px;color:#5f5e5a;margin-bottom:16px">Choose when and how you'd like to be reminded about your Yùn Qì risk periods.</p>
+
+  <div class="info-box">&#128276; All emails include a one-click <strong>Unsubscribe</strong> link. You can also manage or stop notifications here any time.</div>
+
+  <div class="section">
+    <div class="section-title">Email alerts</div>
+    <div class="card">
+      <div class="toggle-row">
+        <div class="tr-body"><div class="tr-title">Risk period alerts</div><div class="tr-sub">Reminder before each high-risk Kè Qì period begins</div></div>
+        <label class="switch"><input type="checkbox" id="t1" checked><span class="slider"></span></label>
+      </div>
+      <div id="timing-wrap" style="padding:0 0 14px">
+        <label style="font-size:12px;color:#5f5e5a">Send reminder</label>
+        <select class="timing-select">
+          <option>2 weeks before</option>
+          <option>1 week before</option>
+          <option>3 days before</option>
+          <option>1 day before</option>
+        </select>
+      </div>
+      <div class="toggle-row">
+        <div class="tr-body"><div class="tr-title">Seasonal wellness tips</div><div class="tr-sub">Qì-based health advice 4 times per year (each season)</div></div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div class="tr-body"><div class="tr-title">Annual forecast</div><div class="tr-sub">Your complete next-year Yùn Qì analysis every January</div></div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div class="tr-body"><div class="tr-title">Clinic news &amp; updates</div><div class="tr-sub">Occasional updates from Blossom Skin &amp; Health</div></div>
+        <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Upcoming alerts</div>
+    <div style="background:#fff;border:0.5px solid #e0ded6;border-radius:12px;overflow:hidden">
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:0.5px solid #f0ede8">
+        <div style="width:8px;height:8px;border-radius:50%;background:#E24B4A;flex-shrink:0"></div>
+        <div style="flex:1"><div style="font-size:12px;font-weight:500">High-risk period reminder</div><div style="font-size:11px;color:#888780">陽明燥金 — Sending 7 Nov 2026</div></div>
+        <div style="font-size:11px;color:#888780">in 65 days</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:0.5px solid #f0ede8">
+        <div style="width:8px;height:8px;border-radius:50%;background:#FAC775;flex-shrink:0"></div>
+        <div style="flex:1"><div style="font-size:12px;font-weight:500">Seasonal wellness tip</div><div style="font-size:11px;color:#888780">Autumn Qì care — Sending 22 Sep 2026</div></div>
+        <div style="font-size:11px;color:#888780">in 19 days</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 14px">
+        <div style="width:8px;height:8px;border-radius:50%;background:#9FE1CB;flex-shrink:0"></div>
+        <div style="flex:1"><div style="font-size:12px;font-weight:500">2027 Annual forecast</div><div style="font-size:11px;color:#888780">Sending 5 January 2027</div></div>
+        <div style="font-size:11px;color:#888780">in 124 days</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" onclick="save()">&#10003; Save preferences</button>
+  <button class="btn btn-danger" onclick="window.location.href='09_Unsubscribe_YunQiPro.html'">Unsubscribe from all emails</button>
+  <p style="font-size:11px;color:#888780;text-align:center;margin-top:8px;line-height:1.5">Unsubscribing will stop all emails but your profile and analysis will be saved. You can re-subscribe any time.</p>
+</div>
+<script>
+function save(){const b=document.querySelector('.btn-primary');b.textContent='&#10003; Saved';b.style.background='#1D9E75';setTimeout(()=>{b.innerHTML='&#10003; Save preferences';b.style.background='#534AB7'},2000);}
+document.getElementById('t1').addEventListener('change',function(){document.getElementById('timing-wrap').style.opacity=this.checked?'1':'.4';});
+</script>
+</body></html>
