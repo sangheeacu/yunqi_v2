@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your health profile — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18}
+.hdr{background:#fff;border-bottom:0.5px solid #e0ded6;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:15px;font-weight:600}.logo span{color:#534AB7}
+.progress-bar{height:3px;background:#e0ded6;position:sticky;top:49px;z-index:9}
+.progress-fill{height:100%;background:#534AB7;width:0%;transition:width .4s}
+.container{max-width:480px;margin:0 auto;padding:20px 16px 40px}
+.section{margin-bottom:20px}
+.section-title{font-size:13px;font-weight:600;color:#534AB7;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;padding:18px}
+.label{font-size:12px;font-weight:500;color:#5f5e5a;margin-bottom:6px;display:block}
+.label-hint{font-size:11px;color:#888780;margin-bottom:8px;display:block}
+.input{width:100%;padding:11px 13px;border:0.5px solid #b4b2a9;border-radius:8px;font-size:15px;color:#1a1a18;outline:none;background:#fff}
+.input:focus{border-color:#534AB7;box-shadow:0 0 0 3px rgba(83,74,183,.1)}
+.input.error{border-color:#E24B4A}
+.field-gap{margin-top:14px}
+.cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:4px}
+.cond-item{display:flex;align-items:center;gap:8px;padding:10px 11px;border:0.5px solid #e0ded6;border-radius:8px;cursor:pointer;font-size:12px;background:#fff;user-select:none}
+.cond-item:hover{border-color:#534AB7}
+.cond-item.checked{border-color:#534AB7;background:#EEEDFE;color:#3C3489;font-weight:500}
+.cond-item input[type=checkbox]{accent-color:#534AB7;width:14px;height:14px;flex-shrink:0;pointer-events:none}
+.cond-icon{font-size:15px;flex-shrink:0}
+.btn{width:100%;padding:13px;background:#534AB7;color:#EEEDFE;border:none;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;margin-top:8px}
+.btn:hover{opacity:.88}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.err-msg{font-size:12px;color:#E24B4A;margin-top:5px;display:none}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+.toggle-label{font-size:13px}.toggle-sub{font-size:11px;color:#888780;margin-top:1px}
+.switch{position:relative;width:42px;height:24px;flex-shrink:0}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;inset:0;background:#b4b2a9;border-radius:24px;cursor:pointer;transition:.3s}
+.slider:before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.3s}
+input:checked+.slider{background:#534AB7}
+input:checked+.slider:before{transform:translateX(18px)}
+.note{font-size:11px;color:#888780;line-height:1.5;margin-top:8px}
+</style>
+</head><body>
+<div class="hdr">
+  <div class="logo">Yùn Qì <span>Pro</span></div>
+  <div style="font-size:12px;color:#888780">Step 1 of 1</div>
+</div>
+<div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+<div class="container">
+
+  <!-- 인사말 -->
+  <div style="margin-bottom:20px">
+    <h1 style="font-size:20px;font-weight:600;margin-bottom:4px">Build your health profile</h1>
+    <p style="font-size:13px;color:#5f5e5a;line-height:1.6">This takes about 2 minutes. Your information is used only to calculate your personalised Yùn Qì risk periods.</p>
+  </div>
+
+  <!-- SECTION 1: 기본 정보 -->
+  <div class="section">
+    <div class="section-title">&#128100; Personal information</div>
+    <div class="card">
+      <label class="label">Full name</label>
+      <input class="input" id="name" type="text" placeholder="Your full name" oninput="updateProgress()">
+      <div class="field-gap">
+        <label class="label">Date of birth</label>
+        <span class="label-hint">Used to calculate your personal Wǔ Yùn Liù Qì chart</span>
+        <input class="input" id="dob" type="date" oninput="updateProgress()">
+        <div class="err-msg" id="dob-err">Please enter your date of birth.</div>
+      </div>
+      <div class="field-gap">
+        <label class="label">Sex at birth</label>
+        <select class="input" id="sex" onchange="updateProgress()">
+          <option value="">Select…</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="other">Prefer not to say</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: 본인 질환 -->
+  <div class="section">
+    <div class="section-title">&#129656; Your health conditions</div>
+    <div class="card">
+      <label class="label">Select all that apply to you</label>
+      <span class="label-hint">These help us identify which Qì imbalances affect you most</span>
+      <div class="cond-grid" id="cond-grid">
+        <div class="cond-item" onclick="toggleCond(this,'resp')"><input type="checkbox" id="resp"><span class="cond-icon">&#129755;</span>Respiratory<br><span style="font-size:10px;color:#888780">Asthma, allergies</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'cardio')"><input type="checkbox" id="cardio"><span class="cond-icon">&#10084;</span>Cardiovascular<br><span style="font-size:10px;color:#888780">Hypertension, heart</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'digest')"><input type="checkbox" id="digest"><span class="cond-icon">&#129704;</span>Digestive<br><span style="font-size:10px;color:#888780">Stomach, bowel</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'musculo')"><input type="checkbox" id="musculo"><span class="cond-icon">&#129459;</span>Musculoskeletal<br><span style="font-size:10px;color:#888780">Joints, back</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'neuro')"><input type="checkbox" id="neuro"><span class="cond-icon">&#129761;</span>Neurological<br><span style="font-size:10px;color:#888780">Headache, insomnia</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'skin')"><input type="checkbox" id="skin"><span class="cond-icon">&#127997;</span>Skin<br><span style="font-size:10px;color:#888780">Eczema, psoriasis</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'endo')"><input type="checkbox" id="endo"><span class="cond-icon">&#129504;</span>Endocrine<br><span style="font-size:10px;color:#888780">Diabetes, thyroid</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'liver')"><input type="checkbox" id="liver"><span class="cond-icon">&#129978;</span>Liver & Gallbladder<br><span style="font-size:10px;color:#888780">肝膽 Gān Dǎn</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'kidney')"><input type="checkbox" id="kidney"><span class="cond-icon">&#129762;</span>Kidney<br><span style="font-size:10px;color:#888780">腎 Shèn disorders</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'surgery')"><input type="checkbox" id="surgery"><span class="cond-icon">&#128299;</span>Surgery history<br><span style="font-size:10px;color:#888780">Major operations</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'gynaeco')"><input type="checkbox" id="gynaeco"><span class="cond-icon">&#127803;</span>Gynaecological<br><span style="font-size:10px;color:#888780">Menstrual, fertility</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'other')"><input type="checkbox" id="other"><span class="cond-icon">&#8230;</span>Other<br><span style="font-size:10px;color:#888780">Specify below</span></div>
+      </div>
+      <div id="other-wrap" style="margin-top:10px;display:none">
+        <input class="input" id="other-text" type="text" placeholder="Please describe your condition(s)">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: 가족 질환력 -->
+  <div class="section">
+    <div class="section-title">&#128106; Family health history</div>
+    <div class="card">
+      <label class="label">Select conditions in your immediate family</label>
+      <span class="label-hint">Parents, siblings, grandparents — hereditary patterns affect your Yùn Qì vulnerability</span>
+      <div class="cond-grid" id="fam-grid">
+        <div class="cond-item" onclick="toggleCond(this,'f-cardio')"><input type="checkbox" id="f-cardio"><span class="cond-icon">&#10084;</span>Heart disease<br><span style="font-size:10px;color:#888780">Cardiovascular</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'f-cancer')"><input type="checkbox" id="f-cancer"><span class="cond-icon">&#127799;</span>Cancer<br><span style="font-size:10px;color:#888780">Any type</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'f-diabetes')"><input type="checkbox" id="f-diabetes"><span class="cond-icon">&#129504;</span>Diabetes<br><span style="font-size:10px;color:#888780">Type 1 or 2</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'f-stroke')"><input type="checkbox" id="f-stroke"><span class="cond-icon">&#129761;</span>Stroke<br><span style="font-size:10px;color:#888780">Cerebrovascular</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'f-liver')"><input type="checkbox" id="f-liver"><span class="cond-icon">&#129978;</span>Liver disease<br><span style="font-size:10px;color:#888780">Hepatitis, cirrhosis</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'f-kidney')"><input type="checkbox" id="f-kidney"><span class="cond-icon">&#129762;</span>Kidney disease<br><span style="font-size:10px;color:#888780">CKD, stones</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'f-mental')"><input type="checkbox" id="f-mental"><span class="cond-icon">&#127775;</span>Mental health<br><span style="font-size:10px;color:#888780">Depression, anxiety</span></div>
+        <div class="cond-item" onclick="toggleCond(this,'f-resp')"><input type="checkbox" id="f-resp"><span class="cond-icon">&#129755;</span>Respiratory<br><span style="font-size:10px;color:#888780">Asthma, COPD</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: 알림 설정 -->
+  <div class="section">
+    <div class="section-title">&#128276; Notification preferences</div>
+    <div class="card">
+      <div class="toggle-row" style="border-bottom:0.5px solid #f0ede8">
+        <div><div class="toggle-label">Email alerts before risk periods</div><div style="font-size:11px;color:#888780;margin-top:1px">Receive a reminder 2 weeks before each high-risk period</div></div>
+        <label class="switch"><input type="checkbox" id="notif-risk" checked><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row" style="border-bottom:0.5px solid #f0ede8">
+        <div><div class="toggle-label">Seasonal health tips</div><div style="font-size:11px;color:#888780;margin-top:1px">Qì-based wellness advice each season (4x per year)</div></div>
+        <label class="switch"><input type="checkbox" id="notif-season" checked><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div><div class="toggle-label">Annual Yùn Qì forecast</div><div style="font-size:11px;color:#888780;margin-top:1px">Your full next-year analysis every January</div></div>
+        <label class="switch"><input type="checkbox" id="notif-annual" checked><span class="slider"></span></label>
+      </div>
+      <p class="note">&#128274; You can change these settings any time from your dashboard, or unsubscribe instantly via any email we send.</p>
+    </div>
+  </div>
+
+  <button class="btn" id="submit-btn" onclick="submitProfile()">&#10003;&nbsp; Generate my Yùn Qì analysis</button>
+  <p style="font-size:11px;color:#888780;text-align:center;margin-top:12px;line-height:1.5">By continuing you agree that this analysis is for general wellness purposes only and does not constitute medical advice. — AHPRA compliant.</p>
+</div>
+
+<script>
+function toggleCond(el,id){
+  el.classList.toggle('checked');
+  document.getElementById(id).checked=el.classList.contains('checked');
+  if(id==='other'){document.getElementById('other-wrap').style.display=el.classList.contains('checked')?'block':'none';}
+  updateProgress();
+}
+function updateProgress(){
+  const name=document.getElementById('name').value.trim();
+  const dob=document.getElementById('dob').value;
+  const sex=document.getElementById('sex').value;
+  let p=0;
+  if(name)p+=33;
+  if(dob)p+=33;
+  if(sex)p+=34;
+  document.getElementById('prog').style.width=p+'%';
+}
+function submitProfile(){
+  const dob=document.getElementById('dob').value;
+  if(!dob){document.getElementById('dob-err').style.display='block';return;}
+  document.getElementById('dob-err').style.display='none';
+  window.location.href='05_Result_YunQiPro.html';
+}
+</script>
+</body></html>
