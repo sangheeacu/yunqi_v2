@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Unsubscribe — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18;min-height:100vh;display:flex;flex-direction:column}
+.hdr{background:#fff;border-bottom:0.5px solid #e0ded6;padding:14px 20px}
+.logo{font-size:15px;font-weight:600}.logo span{color:#534AB7}
+.container{max-width:440px;margin:0 auto;padding:40px 16px;flex:1;display:flex;flex-direction:column;align-items:center}
+.icon-wrap{width:72px;height:72px;background:#f4f3f0;border:0.5px solid #e0ded6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:20px}
+h1{font-size:20px;font-weight:600;text-align:center;margin-bottom:8px}
+.sub{font-size:14px;color:#5f5e5a;text-align:center;line-height:1.6;margin-bottom:24px}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;padding:18px;width:100%;margin-bottom:12px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:11px 0;border-bottom:0.5px solid #f0ede8;cursor:pointer}
+.opt:last-child{border-bottom:none}
+.opt input[type=radio]{accent-color:#534AB7;margin-top:2px;flex-shrink:0}
+.opt-title{font-size:13px;font-weight:500}
+.opt-sub{font-size:11px;color:#888780;margin-top:2px}
+.btn{width:100%;padding:12px;border-radius:9px;font-size:14px;font-weight:500;cursor:pointer;border:none;margin-bottom:8px}
+.btn-danger{background:#E24B4A;color:#fff}
+.btn-secondary{background:#fff;color:#5f5e5a;border:0.5px solid #b4b2a9}
+.done-state{display:none;text-align:center}
+.done-state h2{font-size:18px;font-weight:600;margin-bottom:8px}
+.done-state p{font-size:13px;color:#5f5e5a;line-height:1.6;margin-bottom:16px}
+</style>
+</head><body>
+<div class="hdr"><div class="logo">Yùn Qì <span>Pro</span></div></div>
+<div class="container">
+  <div id="main-state">
+    <div class="icon-wrap">&#128274;</div>
+    <h1>Manage email preferences</h1>
+    <p class="sub">Sorry to hear you'd like to change your email settings. What would you like to do?</p>
+    <div class="card">
+      <div class="opt"><input type="radio" name="choice" value="pause" checked><div><div class="opt-title">Pause emails for 3 months</div><div class="opt-sub">We'll automatically resume after 3 months</div></div></div>
+      <div class="opt"><input type="radio" name="choice" value="risk-only"><div><div class="opt-title">Keep only high-risk alerts</div><div class="opt-sub">Stop seasonal tips and newsletters, keep risk period warnings</div></div></div>
+      <div class="opt"><input type="radio" name="choice" value="all"><div><div class="opt-title">Unsubscribe from all emails</div><div class="opt-sub">Your profile and analysis will be saved — you can re-subscribe any time</div></div></div>
+    </div>
+    <button class="btn btn-danger" onclick="confirm()">Confirm my choice</button>
+    <button class="btn btn-secondary" onclick="window.location.href='06_Dashboard_YunQiPro.html'">Cancel — keep my settings</button>
+    <p style="font-size:11px;color:#888780;text-align:center;margin-top:10px;line-height:1.5">Your Yùn Qì profile and analysis will always be saved. You can update notification preferences any time from your dashboard.</p>
+  </div>
+  <div class="done-state" id="done-state">
+    <div class="icon-wrap" style="background:#E1F5EE;border-color:#9FE1CB;margin:0 auto 20px">&#10003;</div>
+    <h2>Done — preferences updated</h2>
+    <p>We've updated your email preferences. You won't receive unwanted emails from us.</p>
+    <button class="btn btn-secondary" onclick="window.location.href='06_Dashboard_YunQiPro.html'">&#8592; Back to dashboard</button>
+    <p style="font-size:12px;color:#534AB7;cursor:pointer;margin-top:12px" onclick="window.location.href='08_Notifications_YunQiPro.html'">Re-subscribe to emails</p>
+  </div>
+</div>
+<script>
+function confirm(){
+  document.getElementById('main-state').style.display='none';
+  document.getElementById('done-state').style.display='block';
+}
+</script>
+</body></html>
