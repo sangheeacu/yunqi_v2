@@ -23,7 +23,9 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f4f3f0;color:#1a
 .input:focus{border-color:#534AB7;box-shadow:0 0 0 3px rgba(83,74,183,.1)}
 .btn{width:100%;padding:13px;background:#534AB7;color:#EEEDFE;border:none;border-radius:9px;font-size:15px;font-weight:500;cursor:pointer;margin-top:14px;transition:opacity .15s}
 .btn:hover{opacity:.88}
+.btn:disabled{opacity:.5;cursor:not-allowed}
 .err{font-size:12px;color:#E24B4A;margin-top:6px;display:none}
+.success{font-size:12px;color:#1D9E75;margin-top:6px;display:none;font-weight:500}
 .divider{display:flex;align-items:center;gap:10px;margin:16px 0}
 .divider hr{flex:1;border:none;border-top:0.5px solid #e0ded6}
 .divider span{font-size:11px;color:#888780}
@@ -33,6 +35,8 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f4f3f0;color:#1a
 .feat-label{font-size:11px;color:rgba(255,255,255,.8);font-weight:500}
 .feat-sub{font-size:10px;color:rgba(255,255,255,.5);margin-top:2px}
 .footer-note{font-size:10px;color:rgba(255,255,255,.4);padding:20px;text-align:center;max-width:420px;margin:0 auto}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head><body>
 <div class="hero">
@@ -44,23 +48,22 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f4f3f0;color:#1a
     <div class="hero-badge">&#127758; Based on Wǔ Yùn Liù Qì 五運六氣</div>
     <h1 class="hero-title">Know your <span>health risk periods</span> before they arrive</h1>
     <p class="hero-sub">Enter your email to receive a personalised Yùn Qì analysis based on your birth date and health conditions — free, no password needed.</p>
-
     <div class="card">
       <div class="card-title">Get your free analysis</div>
       <div class="card-sub">We'll send a magic link to your inbox — no password required</div>
       <label class="label">Your email address</label>
       <input class="input" type="email" id="email" placeholder="you@example.com" autocomplete="email">
       <div class="err" id="err">Please enter a valid email address.</div>
-      <button class="btn" onclick="submit()">&#128274; Send my access link</button>
+      <div class="success" id="success">&#10003; Magic link sent! Check your inbox.</div>
+      <button class="btn" id="btn" onclick="submit()">&#128274; Send my access link</button>
       <div class="divider"><hr><span>What you'll get</span><hr></div>
       <div style="display:flex;flex-direction:column;gap:7px">
-        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5f5e5a">&#10003;&nbsp;<strong style="color:#1a1a18">Your 2026 & 2027 risk calendar</strong> — exact dates to watch</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5f5e5a">&#10003;&nbsp;<strong style="color:#1a1a18">Your 2026 &amp; 2027 risk calendar</strong> — exact dates to watch</div>
         <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5f5e5a">&#10003;&nbsp;<strong style="color:#1a1a18">Condition-specific alerts</strong> — matched to your health history</div>
         <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5f5e5a">&#10003;&nbsp;<strong style="color:#1a1a18">Seasonal email reminders</strong> — before each risk period</div>
         <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5f5e5a">&#10003;&nbsp;<strong style="color:#1a1a18">Unsubscribe any time</strong> — one click in every email</div>
       </div>
     </div>
-
     <div class="features">
       <div class="feat"><div class="feat-icon">&#128197;</div><div class="feat-label">Personalised</div><div class="feat-sub">by birth date</div></div>
       <div class="feat"><div class="feat-icon">&#128274;</div><div class="feat-label">No password</div><div class="feat-sub">magic link</div></div>
@@ -69,14 +72,49 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f4f3f0;color:#1a
   </div>
   <div class="footer-note">This tool is for general wellness information only. It does not constitute medical advice. Always consult a qualified health professional regarding any medical condition. — Dr Sang Hee Park, AHPRA registered acupuncturist.</div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
-function submit(){
-  const v=document.getElementById('email').value.trim();
-  const err=document.getElementById('err');
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){err.style.display='block';return;}
+const SUPABASE_URL = 'https://dqcxpevxkbgwqqzackjd.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_heu08gTrMkKGkPQctC7AZw_nsN6Yd7l';
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function submit(){
+  const email = document.getElementById('email').value.trim();
+  const err = document.getElementById('err');
+  const suc = document.getElementById('success');
+  const btn = document.getElementById('btn');
+
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    err.style.display='block';
+    suc.style.display='none';
+    return;
+  }
   err.style.display='none';
-  sessionStorage.setItem('yq_email',v);
-  window.location.href='02_EmailSent_YunQiPro.html';
+  btn.disabled=true;
+  btn.innerHTML='<span class="spinner"></span>Sending...';
+
+  const { error } = await _supabase.auth.signInWithOtp({
+    email: email,
+    options: {
+      emailRedirectTo: 'https://yunqi-v2.vercel.app/04_Profile_YunQiPro.html'
+    }
+  });
+
+  if(error){
+    err.textContent = error.message || 'Something went wrong. Please try again.';
+    err.style.display='block';
+    btn.disabled=false;
+    btn.innerHTML='&#128274; Send my access link';
+  } else {
+    suc.style.display='block';
+    btn.innerHTML='&#10003; Link sent!';
+    btn.style.background='#1D9E75';
+    sessionStorage.setItem('yq_email', email);
+    setTimeout(()=>{
+      window.location.href='02_EmailSent_YunQiPro.html';
+    }, 1500);
+  }
 }
 document.getElementById('email').addEventListener('keydown',e=>{if(e.key==='Enter')submit()});
 </script>
