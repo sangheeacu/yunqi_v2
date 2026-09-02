@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin — Yùn Qì Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f4f3f0;color:#1a1a18}
+.hdr{background:#633806;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:15px;font-weight:600;color:#FAEEDA}.logo span{color:#FAC775}
+.admin-badge{font-size:11px;color:#FAC775;background:rgba(255,255,255,.1);border:0.5px solid rgba(255,255,255,.2);border-radius:20px;padding:3px 10px}
+.container{max-width:540px;margin:0 auto;padding:20px 16px 40px}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+.stat-card{background:#fff;border:0.5px solid #e0ded6;border-radius:10px;padding:14px}
+.stat-num{font-size:26px;font-weight:600;margin-bottom:2px}
+.stat-label{font-size:11px;color:#888780}
+.stat-trend{font-size:11px;color:#1D9E75;margin-top:3px}
+.section-hdr{font-size:13px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.section-hdr span{font-size:11px;color:#534AB7;cursor:pointer;font-weight:400}
+.card{background:#fff;border:0.5px solid #e0ded6;border-radius:12px;overflow:hidden;margin-bottom:12px}
+table{width:100%;border-collapse:collapse}
+th{padding:9px 12px;text-align:left;font-size:10px;font-weight:500;color:#888780;text-transform:uppercase;background:#f8f7f4;border-bottom:0.5px solid #e0ded6}
+td{padding:10px 12px;border-bottom:0.5px solid #f0ede8;font-size:12px}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-flex;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:500}
+.badge-red{background:#FCEBEB;color:#791F1F}
+.badge-amber{background:#FAEEDA;color:#633806}
+.badge-green{background:#E1F5EE;color:#085041}
+.badge-purple{background:#EEEDFE;color:#3C3489}
+.btn-sm{padding:5px 10px;border-radius:6px;font-size:11px;cursor:pointer;border:0.5px solid #b4b2a9;background:#fff;color:#5f5e5a}
+.alert-row{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-bottom:0.5px solid #f0ede8}
+.alert-row:last-child{border-bottom:none}
+.a-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.a-body{flex:1}
+.a-title{font-size:12px;font-weight:500;margin-bottom:2px}
+.a-sub{font-size:11px;color:#888780}
+.a-time{font-size:11px;color:#888780;flex-shrink:0}
+</style>
+</head><body>
+<div class="hdr">
+  <div class="logo">Yùn Qì <span>Pro</span> — Admin</div>
+  <span class="admin-badge">Super admin</span>
+</div>
+<div class="container">
+
+  <div style="margin-bottom:16px">
+    <h1 style="font-size:18px;font-weight:600">Dashboard</h1>
+    <p style="font-size:12px;color:#888780;margin-top:2px">Wednesday, 3 September 2026 &middot; 丙午 Bǐng Wǔ</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-num">247</div><div class="stat-label">Total users</div><div class="stat-trend">&#9650; +12 this week</div></div>
+    <div class="stat-card"><div class="stat-num">183</div><div class="stat-label">Active subscribers</div><div class="stat-trend" style="color:#888780">74% of users</div></div>
+    <div class="stat-card"><div class="stat-num">1,840</div><div class="stat-label">Emails sent (30 days)</div><div class="stat-trend">&#9650; 94% delivered</div></div>
+    <div class="stat-card"><div class="stat-num">31</div><div class="stat-label">Bookings from app</div><div class="stat-trend">&#9650; +5 this month</div></div>
+  </div>
+
+  <!-- Upcoming alert sends -->
+  <div class="section-hdr">Upcoming email sends <span>View all</span></div>
+  <div class="card">
+    <div class="alert-row">
+      <div class="a-dot" style="background:#E24B4A"></div>
+      <div class="a-body"><div class="a-title">High-risk alert — 陽明燥金 Step 6</div><div class="a-sub">183 subscribers &middot; Sending 7 Nov 2026</div></div>
+      <div class="a-time">65 days</div>
+    </div>
+    <div class="alert-row">
+      <div class="a-dot" style="background:#FAC775"></div>
+      <div class="a-body"><div class="a-title">Seasonal tip — Autumn Qì care</div><div class="a-sub">183 subscribers &middot; Sending 22 Sep 2026</div></div>
+      <div class="a-time">19 days</div>
+    </div>
+    <div class="alert-row">
+      <div class="a-dot" style="background:#9FE1CB"></div>
+      <div class="a-body"><div class="a-title">2027 Annual forecast</div><div class="a-sub">All subscribers &middot; Sending 5 Jan 2027</div></div>
+      <div class="a-time">124 days</div>
+    </div>
+  </div>
+
+  <!-- Recent users -->
+  <div class="section-hdr">Recent users <span>Export CSV</span></div>
+  <div class="card">
+    <table>
+      <thead><tr><th>Name</th><th>Conditions</th><th>Alerts</th><th>Joined</th></tr></thead>
+      <tbody>
+        <tr><td><div style="font-weight:500">Sarah Kim</div><div style="font-size:10px;color:#888780">1982 &middot; Wood</div></td><td><span class="badge badge-red">3 high</span></td><td><span class="badge badge-green">On</span></td><td>2 Sep</td></tr>
+        <tr><td><div style="font-weight:500">James Lee</div><div style="font-size:10px;color:#888780">1975 &middot; Metal</div></td><td><span class="badge badge-amber">2 mid</span></td><td><span class="badge badge-green">On</span></td><td>1 Sep</td></tr>
+        <tr><td><div style="font-weight:500">Mia Chen</div><div style="font-size:10px;color:#888780">1990 &middot; Fire</div></td><td><span class="badge badge-red">2 high</span></td><td><span class="badge badge-amber">Paused</span></td><td>30 Aug</td></tr>
+        <tr><td><div style="font-weight:500">David Park</div><div style="font-size:10px;color:#888780">1968 &middot; Earth</div></td><td><span class="badge badge-red">4 high</span></td><td><span class="badge badge-green">On</span></td><td>28 Aug</td></tr>
+        <tr><td><div style="font-weight:500">Yuki Tanaka</div><div style="font-size:10px;color:#888780">1985 &middot; Water</div></td><td><span class="badge badge-amber">1 mid</span></td><td><span class="badge badge-purple">Risk only</span></td><td>25 Aug</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Unsubscribes -->
+  <div class="section-hdr">Unsubscribes (last 30 days) <span>8 users</span></div>
+  <div class="card" style="padding:12px 14px">
+    <div style="display:flex;gap:16px;font-size:12px;color:#5f5e5a">
+      <div style="text-align:center"><div style="font-size:20px;font-weight:600;color:#633806">4</div><div style="font-size:10px;color:#888780">Paused</div></div>
+      <div style="text-align:center"><div style="font-size:20px;font-weight:600;color:#534AB7">2</div><div style="font-size:10px;color:#888780">Risk only</div></div>
+      <div style="text-align:center"><div style="font-size:20px;font-weight:600;color:#E24B4A">2</div><div style="font-size:10px;color:#888780">Full unsub</div></div>
+    </div>
+  </div>
+
+  <p style="font-size:11px;color:#888780;text-align:center;margin-top:8px">Yùn Qì Pro &middot; Admin panel &middot; Blossom Skin &amp; Health</p>
+</div>
+</body></html>
